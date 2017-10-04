@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		094615DA1F8466B0002B0208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094615D91F8466B0002B0208 /* AppDelegate.swift */; };
-		094615DC1F8466B0002B0208 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094615DB1F8466B0002B0208 /* ViewController.swift */; };
 		094615DF1F8466B0002B0208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094615DD1F8466B0002B0208 /* Main.storyboard */; };
 		094615E11F8466B0002B0208 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094615E01F8466B0002B0208 /* Assets.xcassets */; };
 		094615E41F8466B0002B0208 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094615E21F8466B0002B0208 /* LaunchScreen.storyboard */; };
 		094615EF1F8466B0002B0208 /* SilentHelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094615EE1F8466B0002B0208 /* SilentHelpTests.swift */; };
 		094615FA1F8466B0002B0208 /* SilentHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094615F91F8466B0002B0208 /* SilentHelpUITests.swift */; };
+		094616081F855571002B0208 /* SilentZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616071F855571002B0208 /* SilentZone.swift */; };
+		0946160A1F855653002B0208 /* SilentZoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616091F855653002B0208 /* SilentZoneListViewController.swift */; };
+		0946160C1F8556AC002B0208 /* SilentZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160B1F8556AC002B0208 /* SilentZoneCell.swift */; };
+		0946160E1F855F0D002B0208 /* EditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160D1F855F0D002B0208 /* EditTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,6 @@
 /* Begin PBXFileReference section */
 		094615D61F8466B0002B0208 /* SilentHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilentHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		094615D91F8466B0002B0208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		094615DB1F8466B0002B0208 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		094615DE1F8466B0002B0208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		094615E01F8466B0002B0208 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		094615E31F8466B0002B0208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		094615F51F8466B0002B0208 /* SilentHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SilentHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		094615F91F8466B0002B0208 /* SilentHelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentHelpUITests.swift; sourceTree = "<group>"; };
 		094615FB1F8466B0002B0208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		094616071F855571002B0208 /* SilentZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZone.swift; sourceTree = "<group>"; };
+		094616091F855653002B0208 /* SilentZoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZoneListViewController.swift; sourceTree = "<group>"; };
+		0946160B1F8556AC002B0208 /* SilentZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZoneCell.swift; sourceTree = "<group>"; };
+		0946160D1F855F0D002B0208 /* EditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				094615D91F8466B0002B0208 /* AppDelegate.swift */,
-				094615DB1F8466B0002B0208 /* ViewController.swift */,
 				094615DD1F8466B0002B0208 /* Main.storyboard */,
 				094615E01F8466B0002B0208 /* Assets.xcassets */,
 				094615E21F8466B0002B0208 /* LaunchScreen.storyboard */,
 				094615E51F8466B0002B0208 /* Info.plist */,
+				094616071F855571002B0208 /* SilentZone.swift */,
+				094616091F855653002B0208 /* SilentZoneListViewController.swift */,
+				0946160B1F8556AC002B0208 /* SilentZoneCell.swift */,
+				0946160D1F855F0D002B0208 /* EditTableViewController.swift */,
 			);
 			path = SilentHelp;
 			sourceTree = "<group>";
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				094615DC1F8466B0002B0208 /* ViewController.swift in Sources */,
+				0946160E1F855F0D002B0208 /* EditTableViewController.swift in Sources */,
+				0946160C1F8556AC002B0208 /* SilentZoneCell.swift in Sources */,
+				094616081F855571002B0208 /* SilentZone.swift in Sources */,
 				094615DA1F8466B0002B0208 /* AppDelegate.swift in Sources */,
+				0946160A1F855653002B0208 /* SilentZoneListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
