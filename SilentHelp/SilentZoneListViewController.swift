@@ -16,8 +16,8 @@ class SilentZoneListViewController: UITableViewController {
         navigationItem.title = "All Silent Zones"
         
         //FOR DEMO
-        var demoSilentZone = SilentZone(name: "Somewhere", address: "450 Granville St, Vancouver, BC")
-        var demoSilentZone2 = SilentZone(name: "Somewhere2", address: "450 Granville St, Vancouver, BC")
+        let demoSilentZone = SilentZone(name: "Somewhere", address: "450 Granville St, Vancouver, BC")
+        let demoSilentZone2 = SilentZone(name: "Somewhere2", address: "450 Granville St, Vancouver, BC")
         silentZoneList?.append(demoSilentZone)
         silentZoneList?.append(demoSilentZone2)
        
