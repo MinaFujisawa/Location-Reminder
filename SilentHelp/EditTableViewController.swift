@@ -9,7 +9,7 @@
 import UIKit
 
 class EditTableViewController: UIViewController {
-    var silentZone: SilentZone?
+    var silentZone: Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()
