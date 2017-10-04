@@ -11,13 +11,13 @@
         <!--All Silent Zones-->
         <scene sceneID="shW-uV-zfn">
             <objects>
-                <tableViewController id="tPv-6v-Nib" sceneMemberID="viewController">
+                <tableViewController id="tPv-6v-Nib" customClass="SilentZoneListViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ar1-GC-Fcp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="90" id="XqF-bj-IY9" customClass="LocationTableViewCell" customModule="SilentHelp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="90" id="XqF-bj-IY9" customClass="SilentZoneCell" customModule="SilentHelp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XqF-bj-IY9" id="E08-1B-dgO">
@@ -41,8 +41,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="locationAddressLabel" destination="57z-re-TkZ" id="JUA-0D-KUC"/>
-                                    <outlet property="locationNameLabel" destination="BPt-MP-2pe" id="jNw-Y8-9EG"/>
+                                    <outlet property="addressLabel" destination="57z-re-TkZ" id="kyu-An-E0C"/>
+                                    <outlet property="nameLabel" destination="BPt-MP-2pe" id="Tec-yI-Xyh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
