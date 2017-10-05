@@ -12,7 +12,7 @@
         <!--All Silent Zones-->
         <scene sceneID="shW-uV-zfn">
             <objects>
-                <tableViewController id="tPv-6v-Nib" customClass="SilentZoneListViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SilentZoneList" id="tPv-6v-Nib" customClass="SilentZoneListViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ar1-GC-Fcp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
                     <navigationItem key="navigationItem" title="All Silent Zones" id="qsp-jv-Vfb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qmD-E5-cMO">
                             <connections>
-                                <segue destination="oEB-Ho-q5K" kind="show" id="gry-ub-uDC"/>
+                                <segue destination="Jpk-2G-nHx" kind="show" id="2Jj-Ft-3y3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -64,6 +64,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LU-Pu-nbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-540" y="-324"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="PCu-nv-yVo">
+            <objects>
+                <viewController id="Jpk-2G-nHx" customClass="SearchViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hYe-PD-Q3E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="bUU-mx-1Y4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSm-7C-OCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="-324"/>
         </scene>
         <!--Edit Zone-->
         <scene sceneID="RKy-FG-V6b">
@@ -192,7 +207,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="248.80000000000001" y="-324.28785607196403"/>
+            <point key="canvasLocation" x="1103" y="-324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nvI-dC-Bav">

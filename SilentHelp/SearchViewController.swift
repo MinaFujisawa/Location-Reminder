@@ -43,10 +43,27 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-        // Do something with the selected place.
         print("Place name: \(place.name)")
         print("Place address: \(place.formattedAddress)")
         print("Place attributions: \(place.attributions)")
+        
+        //back to the list page
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let listVC = storyBoard.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
+        let newPlace = Place(name: place.name, address: place.formattedAddress!)
+        var newSilentZoneList : [Place]
+        if let list = listVC.silentZoneList{
+            newSilentZoneList = list
+        } else {
+            newSilentZoneList = []
+        }
+        listVC.silentZoneList?.append(newPlace)
+        newSilentZoneList.append(newPlace)
+        print("new place \(newPlace.name)")
+        listVC.userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: newSilentZoneList), forKey: "silentZoneList")
+        self.present(listVC, animated: true, completion: nil)
+        //TODO: want to use this
+//        self.navigationController?.pushViewController(listVC, animated: true)
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

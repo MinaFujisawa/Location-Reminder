@@ -7,13 +7,24 @@
 //
 
 import Foundation
-class Place {
+class Place :NSObject, NSCoding {
     var name: String
     var address: String
     init(name: String, address: String) {
         self.name = name
         self.address = address
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as! String;
+        self.address = aDecoder.decodeObject(forKey: "address") as! String;
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.address, forKey: "address")
+    }
+    
 }
 
 //FOR DEMO
