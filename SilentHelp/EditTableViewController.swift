@@ -11,6 +11,10 @@ import UIKit
 class EditTableViewController: UIViewController {
     var silentZone: Place?
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBAction func removeButton(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,16 +24,16 @@ class EditTableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let silentZone = silentZone else { return }
-//        nameTextField.text = silentZone.name
-//        addressLabel.text = silentZone.address
+        nameTextField.text = silentZone.name
+        addressLabel.text = silentZone.address
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(true)
         guard let silentZone = silentZone else { return }
-//        if let name = nameTextField.text {
-//            silentZone.name = name
-//        }
+        if let name = nameTextField.text {
+            silentZone.name = name
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -39,20 +39,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e49-AB-qRc">
-                                            <rect key="frame" x="321" y="29" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal" title="Edit"/>
-                                            <connections>
-                                                <segue destination="u0Z-OT-8aX" kind="show" id="Ln3-8f-tzt"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="57z-re-TkZ" id="kyu-An-E0C"/>
                                     <outlet property="nameLabel" destination="BPt-MP-2pe" id="Tec-yI-Xyh"/>
+                                    <segue destination="u0Z-OT-8aX" kind="show" identifier="GoToEdit" id="Avg-dN-y7x"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,20 +68,11 @@
         <!--Edit Zone-->
         <scene sceneID="RKy-FG-V6b">
             <objects>
-                <viewController title="Edit Zone" id="u0Z-OT-8aX" sceneMemberID="viewController">
+                <viewController title="Edit Zone" id="u0Z-OT-8aX" customClass="EditTableViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yM0-Ba-sH6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pg4-3v-Nh3">
-                                <rect key="frame" x="313" y="17" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <segue destination="tPv-6v-Nib" kind="show" id="Nr6-xl-ahJ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnX-Uu-fhL">
                                 <rect key="frame" x="16" y="91" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -97,7 +80,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Vancouver Public Library" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Usm-f4-5bg">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. Home" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Usm-f4-5bg">
                                 <rect key="frame" x="74" y="86" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -123,6 +106,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Remove"/>
                                 <connections>
+                                    <action selector="removeButton:" destination="u0Z-OT-8aX" eventType="touchUpInside" id="whV-a9-Mbs"/>
                                     <segue destination="tPv-6v-Nib" kind="show" id="46S-O8-vHp"/>
                                 </connections>
                             </button>
@@ -130,10 +114,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="hbd-sy-61r"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5z3-2a-MkV">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="MK7-Oc-u4X"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="bnT-TP-o4H" id="ZTq-80-ZDc"/>
+                        <outlet property="nameTextField" destination="Usm-f4-5bg" id="0aB-AT-WW1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5F-au-cVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1343" y="437"/>
+            <point key="canvasLocation" x="249" y="469"/>
         </scene>
         <!--Add a Silent Zone-->
         <scene sceneID="vaQ-Go-LpP">
@@ -211,7 +202,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AAI-Zp-Xht">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -220,7 +210,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJh-mV-bRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1321" y="-367"/>
+            <point key="canvasLocation" x="-1338" y="-324"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
