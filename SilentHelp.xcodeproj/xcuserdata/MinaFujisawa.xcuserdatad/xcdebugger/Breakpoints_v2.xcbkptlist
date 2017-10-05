@@ -10,91 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SilentHelp/SilentZoneListViewController.swift"
-            timestampString = "528867530.745314"
+            timestampString = "528869034.557704"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SilentHelp/AppDelegate.swift"
-            timestampString = "528866382.440711"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SilentHelp.AppDelegate.__deallocating_deinit"
-                  moduleName = "SilentHelp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MinaFujisawa/iOSProjects/Project/SilentHelp/SilentHelp/AppDelegate.swift"
-                  timestampString = "528837316.952256"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SilentHelp.AppDelegate.__allocating_init() -&gt; SilentHelp.AppDelegate"
-                  moduleName = "SilentHelp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MinaFujisawa/iOSProjects/Project/SilentHelp/SilentHelp/AppDelegate.swift"
-                  timestampString = "528837316.956421"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SilentHelp.AppDelegate.init() -&gt; SilentHelp.AppDelegate"
-                  moduleName = "SilentHelp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MinaFujisawa/iOSProjects/Project/SilentHelp/SilentHelp/AppDelegate.swift"
-                  timestampString = "528837316.959569"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "main"
-                  moduleName = "SilentHelp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MinaFujisawa/iOSProjects/Project/SilentHelp/SilentHelp/AppDelegate.swift"
-                  timestampString = "528837316.962284"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

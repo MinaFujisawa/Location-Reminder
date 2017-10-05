@@ -17,6 +17,7 @@
 		0946160A1F855653002B0208 /* SilentZoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616091F855653002B0208 /* SilentZoneListViewController.swift */; };
 		0946160C1F8556AC002B0208 /* SilentZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160B1F8556AC002B0208 /* SilentZoneCell.swift */; };
 		0946160E1F855F0D002B0208 /* EditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160D1F855F0D002B0208 /* EditTableViewController.swift */; };
+		7BEABFDDDDFCFD4EB0D49ACD /* libPods-SilentHelp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0446C73EB09D6C67B15A11A /* libPods-SilentHelp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,9 @@
 		094616091F855653002B0208 /* SilentZoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZoneListViewController.swift; sourceTree = "<group>"; };
 		0946160B1F8556AC002B0208 /* SilentZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZoneCell.swift; sourceTree = "<group>"; };
 		0946160D1F855F0D002B0208 /* EditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTableViewController.swift; sourceTree = "<group>"; };
+		18BEFEDA8CC900E868AD1ACB /* Pods-SilentHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp.release.xcconfig"; sourceTree = "<group>"; };
+		B0D9EB05A852DD7B0C2F84E0 /* Pods-SilentHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp.debug.xcconfig"; sourceTree = "<group>"; };
+		C0446C73EB09D6C67B15A11A /* libPods-SilentHelp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SilentHelp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEABFDDDDFCFD4EB0D49ACD /* libPods-SilentHelp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +92,8 @@
 				094615ED1F8466B0002B0208 /* SilentHelpTests */,
 				094615F81F8466B0002B0208 /* SilentHelpUITests */,
 				094615D71F8466B0002B0208 /* Products */,
+				86626EE45DD041BF63AD704E /* Pods */,
+				FBE704B984EBE15C8D1AB4E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +141,23 @@
 			path = SilentHelpUITests;
 			sourceTree = "<group>";
 		};
+		86626EE45DD041BF63AD704E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0D9EB05A852DD7B0C2F84E0 /* Pods-SilentHelp.debug.xcconfig */,
+				18BEFEDA8CC900E868AD1ACB /* Pods-SilentHelp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FBE704B984EBE15C8D1AB4E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0446C73EB09D6C67B15A11A /* libPods-SilentHelp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 094615FE1F8466B0002B0208 /* Build configuration list for PBXNativeTarget "SilentHelp" */;
 			buildPhases = (
+				D60D5891E8A61AAFF5C1B435 /* [CP] Check Pods Manifest.lock */,
 				094615D21F8466B0002B0208 /* Sources */,
 				094615D31F8466B0002B0208 /* Frameworks */,
 				094615D41F8466B0002B0208 /* Resources */,
+				F9994AB737E86C40FE30AD01 /* [CP] Embed Pods Frameworks */,
+				E233B7BC815E329EF0E26DA1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +289,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D60D5891E8A61AAFF5C1B435 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SilentHelp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E233B7BC815E329EF0E26DA1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9994AB737E86C40FE30AD01 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		094615D21F8466B0002B0208 /* Sources */ = {
@@ -436,6 +519,7 @@
 		};
 		094615FF1F8466B0002B0208 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0D9EB05A852DD7B0C2F84E0 /* Pods-SilentHelp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +534,7 @@
 		};
 		094616001F8466B0002B0208 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18BEFEDA8CC900E868AD1ACB /* Pods-SilentHelp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
