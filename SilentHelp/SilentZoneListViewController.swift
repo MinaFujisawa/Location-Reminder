@@ -66,4 +66,8 @@ class SilentZoneListViewController: UITableViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
