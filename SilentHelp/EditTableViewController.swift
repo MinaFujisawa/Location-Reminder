@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditTableViewController: UIViewController {
+class EditTableViewController: UIViewController, UITextFieldDelegate {
     var silentZone: Place?
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -17,7 +17,7 @@ class EditTableViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.nameTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
