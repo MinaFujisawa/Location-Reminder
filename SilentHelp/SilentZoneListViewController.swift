@@ -55,15 +55,19 @@ class SilentZoneListViewController: UITableViewController {
     }
     
     //MARK:segue
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToEdit" {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                if let list = silentZoneList {
-//                    let silentZone = list[indexPath.row]
-//                    let editViewController = segue.destination as! EditTableViewController
-//                    editViewController.silentZone = silentZone
-//                }
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToEdit" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                if let list = silentZoneList {
+                    let silentZone = list[indexPath.row]
+                    let editViewController = segue.destination as! EditTableViewController
+                    editViewController.silentZone = silentZone
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
