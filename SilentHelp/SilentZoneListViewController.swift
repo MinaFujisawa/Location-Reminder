@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SilentZoneListViewController: UITableViewController {
-    
     var silentZoneList : [Place]? = DemoSet.getDemoData()
+    let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
         navigationItem.title = "All Silent Zones"
     }
 
@@ -69,5 +74,10 @@ class SilentZoneListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+    }
+}
+extension SilentZoneListViewController : CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        locationManager.startUpdatingLocation()
     }
 }
