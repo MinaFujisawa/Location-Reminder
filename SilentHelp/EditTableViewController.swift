@@ -10,6 +10,8 @@ import UIKit
 
 class EditTableViewController: UIViewController, UITextFieldDelegate {
     var silentZone: Place?
+    var list: [Place]?
+    var test: Int?
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
@@ -20,10 +22,17 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
     // need to access the index of the Place and reload tableview
     // after removing item from the silentZoneList array
     @IBAction func removeButton(_ sender: Any) {
-        let silentZoneVC = SilentZoneListViewController()
-        var list = silentZoneVC.silentZoneList
-        
-        //list?.remove(at: <#T##Int#>)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let listVC = storyBoard.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
+        print(listVC.silentZoneList?.count ?? 0)
+        if let test = test {
+            listVC.silentZoneList?.remove(at: test)
+            print("removed at \(test)")
+        } else {
+            print("can't get index")
+        }
+//
+//        list?.remove(at: 0 )
     }
     
     override func viewDidLoad() {
@@ -44,6 +53,7 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         guard let silentZone = silentZone else { return }
         if let name = nameTextField.text {
             silentZone.name = name

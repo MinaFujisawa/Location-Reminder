@@ -10,8 +10,6 @@ import UIKit
 import CoreLocation
 
 class SilentZoneListViewController: UITableViewController {
-    
-
 
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
     var silentZoneList : [Place]?
@@ -27,16 +25,11 @@ class SilentZoneListViewController: UITableViewController {
         //MARK: Get data from userDedault
         let defaults = UserDefaults.standard
         if defaults.object(forKey: "silentZoneListUserDefaultKey") != nil{
-            silentZoneList = NSKeyedUnarchiver.unarchiveObject(with: defaults.object(forKey: "silentZoneListUserDefaultKey") as! Data) as! [Place]
+            silentZoneList = NSKeyedUnarchiver.unarchiveObject(with: defaults.object(forKey: "silentZoneListUserDefaultKey") as! Data) as? [Place]
         } else {
             silentZoneList = [Place]()
         }
-        
         navigationItem.title = "All Silent Zones"
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     // MARK: - Table view data source
@@ -81,13 +74,17 @@ class SilentZoneListViewController: UITableViewController {
                     let silentZone = list[indexPath.row]
                     let editViewController = segue.destination as! EditTableViewController
                     editViewController.silentZone = silentZone
+                    editViewController.list = silentZoneList
+                    editViewController.test = indexPath.row
                 }
             }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         tableView.reloadData()
+        print(silentZoneList?.count ?? 0)
     }
     
     // unwind segue: EditTableViewController -> SilentZoneListViewController

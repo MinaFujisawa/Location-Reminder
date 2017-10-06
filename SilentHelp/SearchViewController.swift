@@ -19,7 +19,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
         
@@ -46,12 +45,11 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         searchController?.isActive = false
         print("Place name: \(place.name)")
         print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
         
-        //back to the list page
+        //Add new place
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let listVC = storyBoard.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
-        let newPlace = Place(name: place.name, address: place.formattedAddress!)
+        let newPlace = Place(name: place.name, address:  place.formattedAddress!)
         var newSilentZoneList : [Place]
         if let list = listVC.silentZoneList{
             newSilentZoneList = list
@@ -63,9 +61,15 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         print("new place \(newPlace.name)")
         let defaults = UserDefaults.standard
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: newSilentZoneList), forKey: silentZoneListkey)
-        self.present(listVC, animated: true, completion: nil)
-        //TODO: want to use this
-//        self.navigationController?.pushViewController(listVC, animated: true)
+
+        //Back to list page
+        let destVC = self.storyboard?.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
+        
+        self.present(UINavigationController(rootViewController: destVC), animated: true, completion: {() -> Void in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
@@ -82,4 +86,5 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
+
 }
