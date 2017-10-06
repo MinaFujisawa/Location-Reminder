@@ -17,6 +17,7 @@
 		0946160A1F855653002B0208 /* SilentZoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616091F855653002B0208 /* SilentZoneListViewController.swift */; };
 		0946160C1F8556AC002B0208 /* SilentZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160B1F8556AC002B0208 /* SilentZoneCell.swift */; };
 		0946160E1F855F0D002B0208 /* EditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160D1F855F0D002B0208 /* EditTableViewController.swift */; };
+		09D9CAE91F86A9C6006FED45 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */; };
 		7BEABFDDDDFCFD4EB0D49ACD /* libPods-SilentHelp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0446C73EB09D6C67B15A11A /* libPods-SilentHelp.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		094616091F855653002B0208 /* SilentZoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZoneListViewController.swift; sourceTree = "<group>"; };
 		0946160B1F8556AC002B0208 /* SilentZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZoneCell.swift; sourceTree = "<group>"; };
 		0946160D1F855F0D002B0208 /* EditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTableViewController.swift; sourceTree = "<group>"; };
+		09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		18BEFEDA8CC900E868AD1ACB /* Pods-SilentHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp.release.xcconfig"; sourceTree = "<group>"; };
 		B0D9EB05A852DD7B0C2F84E0 /* Pods-SilentHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0446C73EB09D6C67B15A11A /* libPods-SilentHelp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SilentHelp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				094616091F855653002B0208 /* SilentZoneListViewController.swift */,
 				0946160B1F8556AC002B0208 /* SilentZoneCell.swift */,
 				0946160D1F855F0D002B0208 /* EditTableViewController.swift */,
+				09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */,
 			);
 			path = SilentHelp;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09D9CAE91F86A9C6006FED45 /* SearchViewController.swift in Sources */,
 				0946160E1F855F0D002B0208 /* EditTableViewController.swift in Sources */,
 				0946160C1F8556AC002B0208 /* SilentZoneCell.swift in Sources */,
 				094616081F855571002B0208 /* Place.swift in Sources */,
