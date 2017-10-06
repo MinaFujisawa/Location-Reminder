@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class SilentZoneListViewController: UITableViewController {
-    var userDefaults = UserDefaults.standard
+    
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
     var silentZoneList : [Place]?
     let locationManager = CLLocationManager()
@@ -20,20 +20,13 @@ class SilentZoneListViewController: UITableViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         
-//        array = NSKeyedUnarchiver.unarchiveObjectWithData(userDefaults.objectForKey("persons") as! NSData) as! [Person]
-        silentZoneList = NSKeyedUnarchiver.unarchiveObject(with: userDefaults.object(forKey: "silentZoneList")
-            as! Data) as! [Place]
-        print ("silentZoneList num \(silentZoneList?.count)")
-        
-//        if let list = userDefaults.object(forKey: "silentZoneList"){
-//            silentZoneList = list as! [Place]
-//            print (silentZoneList! [0].name)
-//        } else {
-//            silentZoneList = [Place]()
-//        }
-        
-//        silentZoneList = userDefaults.object(forKey: "silentZoneList") as? [Place] ?? [Place]()
-        
+        //MARK: Get data from userDedault
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "silentZoneListUserDefaultKey") != nil{
+            silentZoneList = NSKeyedUnarchiver.unarchiveObject(with: defaults.object(forKey: "silentZoneListUserDefaultKey") as! Data) as! [Place]
+        } else {
+            silentZoneList = [Place]()
+        }
         
         navigationItem.title = "All Silent Zones"
     }
@@ -90,7 +83,6 @@ class SilentZoneListViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        silentZoneList = userDefaults.object(forKey: "silentZoneList") as? [Place] ?? [Place]()
         tableView.reloadData()
     }
 }

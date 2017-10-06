@@ -10,6 +10,7 @@ import UIKit
 import GooglePlaces
 
 class SearchViewController: UIViewController {
+    let silentZoneListkey:String = "silentZoneListUserDefaultKey"
     
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -60,7 +61,8 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         listVC.silentZoneList?.append(newPlace)
         newSilentZoneList.append(newPlace)
         print("new place \(newPlace.name)")
-        listVC.userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: newSilentZoneList), forKey: "silentZoneList")
+        let defaults = UserDefaults.standard
+        defaults.set(NSKeyedArchiver.archivedData(withRootObject: newSilentZoneList), forKey: silentZoneListkey)
         self.present(listVC, animated: true, completion: nil)
         //TODO: want to use this
 //        self.navigationController?.pushViewController(listVC, animated: true)
