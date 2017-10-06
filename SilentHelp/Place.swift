@@ -27,6 +27,17 @@ class Place :NSObject, NSCoding {
     
 }
 
+struct PlaceSet {
+    static func getPlaceSetData() -> [Place] {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "silentZoneListUserDefaultKey") != nil{
+            return NSKeyedUnarchiver.unarchiveObject(with: defaults.object(forKey: "silentZoneListUserDefaultKey") as! Data) as! [Place]
+        } else {
+            return [Place]()
+        }
+    }
+}
+
 //FOR DEMO
 struct DemoSet {
     static func getDemoData() -> [Place] {

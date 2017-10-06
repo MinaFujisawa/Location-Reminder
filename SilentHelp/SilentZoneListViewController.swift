@@ -12,7 +12,7 @@ import CoreLocation
 class SilentZoneListViewController: UITableViewController {
 
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
-    var silentZoneList : [Place]?
+    var silentZoneList : [Place]? = PlaceSet.getPlaceSetData()
     let locationManager = CLLocationManager()
 
     
@@ -22,13 +22,7 @@ class SilentZoneListViewController: UITableViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         
-        //MARK: Get data from userDedault
-        let defaults = UserDefaults.standard
-        if defaults.object(forKey: "silentZoneListUserDefaultKey") != nil{
-            silentZoneList = NSKeyedUnarchiver.unarchiveObject(with: defaults.object(forKey: "silentZoneListUserDefaultKey") as! Data) as? [Place]
-        } else {
-            silentZoneList = [Place]()
-        }
+        
         navigationItem.title = "All Silent Zones"
     }
 
