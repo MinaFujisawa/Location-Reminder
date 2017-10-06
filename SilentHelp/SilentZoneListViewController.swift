@@ -12,10 +12,12 @@ import CoreLocation
 class SilentZoneListViewController: UITableViewController {
     
 
+
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
     var silentZoneList : [Place]?
     let locationManager = CLLocationManager()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
