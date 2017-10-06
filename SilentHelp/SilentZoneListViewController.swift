@@ -11,9 +11,11 @@ import CoreLocation
 
 class SilentZoneListViewController: UITableViewController {
     
+
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
     var silentZoneList : [Place]?
     let locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -84,6 +86,11 @@ class SilentZoneListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+    }
+    
+    // unwind segue: EditTableViewController -> SilentZoneListViewController
+    @IBAction func unwindToThisView(sender: UIStoryboardSegue) {
+        _ = sender.source as? EditTableViewController
     }
 }
 extension SilentZoneListViewController : CLLocationManagerDelegate {

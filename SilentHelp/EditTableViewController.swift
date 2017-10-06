@@ -13,11 +13,25 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+    var addressName : String?
+    
+    // need to access the index of the Place and reload tableview
+    // after removing item from the silentZoneList array
     @IBAction func removeButton(_ sender: Any) {
+        let silentZoneVC = SilentZoneListViewController()
+        var list = silentZoneVC.silentZoneList
+        
+        //list?.remove(at: <#T##Int#>)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameTextField.delegate = self
+        
+        nameTextField.text = addressName
+    
         // Do any additional setup after loading the view.
     }
     
@@ -45,5 +59,9 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidEndEditing(nameTextField: UITextField) {
+        addressName = nameTextField.text
     }
 }
