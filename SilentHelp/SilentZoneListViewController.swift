@@ -11,6 +11,7 @@ import UIKit
 class SilentZoneListViewController: UITableViewController {
     
     var silentZoneList : [Place]? = DemoSet.getDemoData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "All Silent Zones"
@@ -69,5 +70,10 @@ class SilentZoneListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+    }
+    
+    // unwind segue: EditTableViewController -> SilentZoneListViewController
+    @IBAction func unwindToThisView(sender: UIStoryboardSegue) {
+        _ = sender.source as? EditTableViewController
     }
 }

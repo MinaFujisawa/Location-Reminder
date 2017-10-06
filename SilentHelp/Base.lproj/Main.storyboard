@@ -115,14 +115,20 @@
                         <viewLayoutGuide key="safeArea" id="hbd-sy-61r"/>
                     </view>
                     <navigationItem key="navigationItem" id="5z3-2a-MkV">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="MK7-Oc-u4X"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="MK7-Oc-u4X">
+                            <connections>
+                                <segue destination="7xX-QS-ey7" kind="unwind" unwindAction="unwindToThisViewWithSender:" id="2vF-nW-GzY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="bnT-TP-o4H" id="ZTq-80-ZDc"/>
+                        <outlet property="doneButton" destination="MK7-Oc-u4X" id="atM-So-qeQ"/>
                         <outlet property="nameTextField" destination="Usm-f4-5bg" id="0aB-AT-WW1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5F-au-cVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7xX-QS-ey7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="249" y="469"/>
         </scene>
@@ -214,6 +220,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1LA-0S-qe9"/>
+        <segue reference="46S-O8-vHp"/>
     </inferredMetricsTieBreakers>
 </document>
