@@ -7,21 +7,23 @@
 //
 
 import UIKit
-import CoreLocation
+import GooglePlaces
 
 class SilentZoneListViewController: UITableViewController {
 
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
-    var silentZoneList : [Place]? = PlaceSet.getPlaceSetData()
-    let locationManager = CLLocationManager()
+    var silentZoneList: [Place]? = PlaceSet.getPlaceSetData()
+    var locationManager: CLLocationManager?
+    public var currentLocation : CLLocation?
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.requestAlwaysAuthorization()
+        currentLocation = CLLocation()
         
         navigationItem.title = "All Silent Zones"
     }
@@ -41,7 +43,7 @@ class SilentZoneListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! SilentZoneCell
-        
+
         if let list = silentZoneList {
             cell.nameLabel?.text = list[indexPath.row].name
             cell.addressLabel?.text = list[indexPath.row].address
@@ -49,17 +51,17 @@ class SilentZoneListViewController: UITableViewController {
 
         return cell
     }
-    
+
     //MARK: Delete row
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         silentZoneList!.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
-    
+
     //MARK:segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToEdit" {
@@ -74,20 +76,27 @@ class SilentZoneListViewController: UITableViewController {
             }
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         tableView.reloadData()
         print(silentZoneList?.count ?? 0)
     }
-    
+
     // unwind segue: EditTableViewController -> SilentZoneListViewController
     @IBAction func unwindToThisView(sender: UIStoryboardSegue) {
         _ = sender.source as? EditTableViewController
     }
 }
-extension SilentZoneListViewController : CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        locationManager.startUpdatingLocation()
+extension SilentZoneListViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.first
+        print("current location \(currentLocation)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            locationManager?.startUpdatingLocation()
+        }
     }
 }

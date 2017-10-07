@@ -46,10 +46,12 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         print("Place name: \(place.name)")
         print("Place address: \(place.formattedAddress)")
         
+        
         //Add new place
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let listVC = storyBoard.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
-        let newPlace = Place(name: place.name, address:  place.formattedAddress!)
+        print("Place latitude: \(place.coordinate.latitude)")
+        let newPlace = Place(name: place.name, address: place.formattedAddress!, lat: place.coordinate.latitude, lon: place.coordinate.longitude)
         var newSilentZoneList : [Place]
         if let list = listVC.silentZoneList{
             newSilentZoneList = list
@@ -58,7 +60,6 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         }
         listVC.silentZoneList?.append(newPlace)
         newSilentZoneList.append(newPlace)
-        print("new place \(newPlace.name)")
         let defaults = UserDefaults.standard
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: newSilentZoneList), forKey: silentZoneListkey)
 

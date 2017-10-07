@@ -24,15 +24,10 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
     @IBAction func removeButton(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let listVC = storyBoard.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
-        print(listVC.silentZoneList?.count ?? 0)
         if let test = test {
             listVC.silentZoneList?.remove(at: test)
             print("removed at \(test)")
-        } else {
-            print("can't get index")
         }
-//
-//        list?.remove(at: 0 )
     }
     
     override func viewDidLoad() {
