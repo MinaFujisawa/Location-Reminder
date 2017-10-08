@@ -41,7 +41,7 @@ class EditViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         guard let place = place else { return }
         nameTextField.text = place.comment
-        addressLabel.text = place.address
+        addressLabel.text = place.fullAddress
     }
     
     override func viewWillDisappear(_ animated: Bool) {

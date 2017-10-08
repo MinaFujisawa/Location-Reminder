@@ -49,7 +49,7 @@ class placeListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! placeCell
 
         if let list = placeList {
-            cell.whereLabel?.text = list[indexPath.row].address
+            cell.whereLabel?.text = list[indexPath.row].placeName
             cell.commentLabel?.text = list[indexPath.row].comment
         }
         return cell
@@ -105,9 +105,7 @@ extension placeListViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
-            print("OK!")
         }
-
     }
 }
 

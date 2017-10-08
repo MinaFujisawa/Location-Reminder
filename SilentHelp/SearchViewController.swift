@@ -46,7 +46,7 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         print("Place name: \(place.name)")
         print("Place address: \(place.formattedAddress)")
 
-        //Go to page
+        //Go to add page
         let destVC = self.storyboard?.instantiateViewController(withIdentifier: "addViewController") as! AddViewController
         
         self.present(UINavigationController(rootViewController: destVC), animated: true, completion: {() -> Void in
