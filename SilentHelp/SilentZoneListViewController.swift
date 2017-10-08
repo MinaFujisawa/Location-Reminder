@@ -8,13 +8,15 @@
 
 import UIKit
 import GooglePlaces
+import UserNotifications
 
 class SilentZoneListViewController: UITableViewController {
 
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
     var silentZoneList: [Place]? = PlaceSet.getPlaceSetData()
     var locationManager: CLLocationManager?
-    public var currentLocation : CLLocation?
+    public var currentLocation: CLLocation?
+    let silentZoneListkey:String = "silentZoneListUserDefaultKey"
 
 
     override func viewDidLoad() {
@@ -22,10 +24,12 @@ class SilentZoneListViewController: UITableViewController {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager?.requestAlwaysAuthorization()
+        locationManager?.requestWhenInUseAuthorization()
         currentLocation = CLLocation()
-        
+
         navigationItem.title = "All Silent Zones"
+        
+        setNotification(silentZoneList: silentZoneList)
     }
 
     // MARK: - Table view data source
@@ -60,6 +64,13 @@ class SilentZoneListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         silentZoneList!.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        let defaults = UserDefaults.standard
+        if let list = silentZoneList {
+            defaults.set(NSKeyedArchiver.archivedData(withRootObject: list), forKey: silentZoneListkey)
+        }
+        
+        setNotification(silentZoneList: silentZoneList)
     }
 
     //MARK:segue
@@ -78,9 +89,7 @@ class SilentZoneListViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         tableView.reloadData()
-        print(silentZoneList?.count ?? 0)
     }
 
     // unwind segue: EditTableViewController -> SilentZoneListViewController
@@ -88,15 +97,69 @@ class SilentZoneListViewController: UITableViewController {
         _ = sender.source as? EditTableViewController
     }
 }
+
 extension SilentZoneListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        currentLocation = locations.first
+        let currentLocation = locations.first
         print("current location \(currentLocation)")
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
-            locationManager?.startUpdatingLocation()
+            print("OK!")
         }
+
     }
 }
+
+extension SilentZoneListViewController: UNUserNotificationCenterDelegate {
+    func setNotification(silentZoneList: [Place]?) {
+        // MARK: Notification
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in if granted {print("granted")}
+        }
+        
+        if let list = silentZoneList {
+            let radius: CLLocationDistance = 500.0
+            let notificationId = "locationNotification"
+            
+            for (index, place) in list.enumerated() {
+                print ("set \(list[index].coordinate)")
+                let region = CLCircularRegion(center: place.coordinate, radius: radius,
+                                              identifier: notificationId + String(index))
+                region.notifyOnEntry = true
+                
+                //set content
+                let content = UNMutableNotificationContent()
+                content.title = "My Notification Management Demo"
+                content.subtitle = "Timed Notification"
+                content.body = "Notification pressed"
+                
+                //set trigger
+                let trigger = UNLocationNotificationTrigger(region: region, repeats: false)
+                
+                let request = UNNotificationRequest(identifier: "locationNotification", content: content, trigger: trigger)
+                
+                //Schedule the request
+                let center = UNUserNotificationCenter.current()
+                center.add(request)
+                center.delegate = self
+            }
+        }
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+        
+}
+

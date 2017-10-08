@@ -10,7 +10,7 @@ import UIKit
 import GooglePlaces
 
 class SearchViewController: UIViewController {
-    let silentZoneListkey:String = "silentZoneListUserDefaultKey"
+    let silentZoneListkey:String = SilentZoneListViewController().silentZoneListkey
     
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -50,7 +50,6 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         //Add new place
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let listVC = storyBoard.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
-        print("Place latitude: \(place.coordinate.latitude)")
         let newPlace = Place(name: place.name, address: place.formattedAddress!, lat: place.coordinate.latitude, lon: place.coordinate.longitude)
         var newSilentZoneList : [Place]
         if let list = listVC.silentZoneList{
