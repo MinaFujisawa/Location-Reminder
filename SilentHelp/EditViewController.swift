@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditTableViewController: UIViewController, UITextFieldDelegate {
+class EditViewController: UIViewController, UITextFieldDelegate {
     var place: Place?
     var list: [Place]?
     var test: Int?
@@ -40,7 +40,7 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let place = place else { return }
-        nameTextField.text = place.name
+        nameTextField.text = place.comment
         addressLabel.text = place.address
     }
     
@@ -49,7 +49,7 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
         
         guard let place = place else { return }
         if let name = nameTextField.text {
-            place.name = name
+            place.comment = name
         }
     }
 

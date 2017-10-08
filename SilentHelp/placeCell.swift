@@ -12,8 +12,8 @@ class placeCell: UITableViewCell {
     
     //TASK : Add outlet
  
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var whereLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

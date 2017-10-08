@@ -45,18 +45,9 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         searchController?.isActive = false
         print("Place name: \(place.name)")
         print("Place address: \(place.formattedAddress)")
-        
-        
-        //Add new place
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let listVC = storyBoard.instantiateViewController(withIdentifier: "placeList") as! placeListViewController
-        let newPlace = Place(name: place.name, address: place.formattedAddress!, lat: place.coordinate.latitude, lon: place.coordinate.longitude)
-        listVC.placeList?.append(newPlace)
-        let defaults = UserDefaults.standard
-        defaults.set(NSKeyedArchiver.archivedData(withRootObject: listVC.placeList!), forKey: placeListKey)
 
-        //Back to list page
-        let destVC = self.storyboard?.instantiateViewController(withIdentifier: "placeList") as! placeListViewController
+        //Go to page
+        let destVC = self.storyboard?.instantiateViewController(withIdentifier: "addViewController") as! AddViewController
         
         self.present(UINavigationController(rootViewController: destVC), animated: true, completion: {() -> Void in
             DispatchQueue.main.async {

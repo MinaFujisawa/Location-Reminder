@@ -49,10 +49,9 @@ class placeListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! placeCell
 
         if let list = placeList {
-            cell.nameLabel?.text = list[indexPath.row].name
-            cell.addressLabel?.text = list[indexPath.row].address
+            cell.whereLabel?.text = list[indexPath.row].address
+            cell.commentLabel?.text = list[indexPath.row].comment
         }
-
         return cell
     }
 
@@ -79,7 +78,7 @@ class placeListViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 if let list = placeList {
                     let place = list[indexPath.row]
-                    let editViewController = segue.destination as! EditTableViewController
+                    let editViewController = segue.destination as! EditViewController
                     editViewController.place = place
                     editViewController.list = placeList
                     editViewController.test = indexPath.row
@@ -94,7 +93,7 @@ class placeListViewController: UITableViewController {
 
     // unwind segue: EditTableViewController -> SilentZoneListViewController
     @IBAction func unwindToThisView(sender: UIStoryboardSegue) {
-        _ = sender.source as? EditTableViewController
+        _ = sender.source as? EditViewController
     }
 }
 

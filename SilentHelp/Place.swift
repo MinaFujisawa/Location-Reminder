@@ -10,7 +10,7 @@ import Foundation
 import GooglePlaces
 
 class Place :NSObject, NSCoding {
-    var name: String
+    var comment: String
     var address: String?
     var lat : CLLocationDegrees
     var lon : CLLocationDegrees
@@ -18,22 +18,22 @@ class Place :NSObject, NSCoding {
         return CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
 
-    init(name: String, address: String, lat:CLLocationDegrees, lon: CLLocationDegrees) {
-        self.name = name
+    init(comment: String, address: String, lat:CLLocationDegrees, lon: CLLocationDegrees) {
+        self.comment = comment
         self.address = address
         self.lat = lat
         self.lon = lon
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.name = aDecoder.decodeObject(forKey: "name") as! String;
+        self.comment = aDecoder.decodeObject(forKey: "comment") as! String;
         self.address = aDecoder.decodeObject(forKey: "address") as! String;
         self.lat = aDecoder.decodeDouble(forKey: "lat") as! CLLocationDegrees;
         self.lon = aDecoder.decodeDouble(forKey: "lon") as! CLLocationDegrees;
     }
 
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.comment, forKey: "comment")
         aCoder.encode(self.address, forKey: "address")
         aCoder.encode(self.lat, forKey: "lat")
         aCoder.encode(self.lon, forKey: "lon")
@@ -62,13 +62,4 @@ struct PlaceSet {
         }
     }
 }
-
-////FOR DEMO
-//struct DemoSet {
-//    static func getDemoData() -> [Place] {
-//        let demoSilentZone = Place(name: "Somewhere", address: "450 Granville St, Vancouver, BC")
-//        let demoSilentZone2 = Place(name: "Somewhere2", address: "450 Granville St, Vancouver, BC")
-//        return [demoSilentZone, demoSilentZone2]
-//    }
-//}
 
