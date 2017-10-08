@@ -14,8 +14,8 @@
 		094615EF1F8466B0002B0208 /* SilentHelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094615EE1F8466B0002B0208 /* SilentHelpTests.swift */; };
 		094615FA1F8466B0002B0208 /* SilentHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094615F91F8466B0002B0208 /* SilentHelpUITests.swift */; };
 		094616081F855571002B0208 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616071F855571002B0208 /* Place.swift */; };
-		0946160A1F855653002B0208 /* SilentZoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616091F855653002B0208 /* SilentZoneListViewController.swift */; };
-		0946160C1F8556AC002B0208 /* SilentZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160B1F8556AC002B0208 /* SilentZoneCell.swift */; };
+		0946160A1F855653002B0208 /* placeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616091F855653002B0208 /* placeListViewController.swift */; };
+		0946160C1F8556AC002B0208 /* placeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160B1F8556AC002B0208 /* placeCell.swift */; };
 		0946160E1F855F0D002B0208 /* EditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160D1F855F0D002B0208 /* EditTableViewController.swift */; };
 		09B5035B1F899B2A003FA2B9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B5035A1F899B2A003FA2B9 /* CoreLocation.framework */; };
 		09D9CAE91F86A9C6006FED45 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */; };
@@ -53,8 +53,8 @@
 		094615F91F8466B0002B0208 /* SilentHelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentHelpUITests.swift; sourceTree = "<group>"; };
 		094615FB1F8466B0002B0208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		094616071F855571002B0208 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		094616091F855653002B0208 /* SilentZoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZoneListViewController.swift; sourceTree = "<group>"; };
-		0946160B1F8556AC002B0208 /* SilentZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentZoneCell.swift; sourceTree = "<group>"; };
+		094616091F855653002B0208 /* placeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeListViewController.swift; sourceTree = "<group>"; };
+		0946160B1F8556AC002B0208 /* placeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeCell.swift; sourceTree = "<group>"; };
 		0946160D1F855F0D002B0208 /* EditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTableViewController.swift; sourceTree = "<group>"; };
 		09B5035A1F899B2A003FA2B9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 				094615E21F8466B0002B0208 /* LaunchScreen.storyboard */,
 				094615E51F8466B0002B0208 /* Info.plist */,
 				094616071F855571002B0208 /* Place.swift */,
-				094616091F855653002B0208 /* SilentZoneListViewController.swift */,
-				0946160B1F8556AC002B0208 /* SilentZoneCell.swift */,
+				094616091F855653002B0208 /* placeListViewController.swift */,
+				0946160B1F8556AC002B0208 /* placeCell.swift */,
 				0946160D1F855F0D002B0208 /* EditTableViewController.swift */,
 				09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */,
 			);
@@ -360,10 +360,10 @@
 			files = (
 				09D9CAE91F86A9C6006FED45 /* SearchViewController.swift in Sources */,
 				0946160E1F855F0D002B0208 /* EditTableViewController.swift in Sources */,
-				0946160C1F8556AC002B0208 /* SilentZoneCell.swift in Sources */,
+				0946160C1F8556AC002B0208 /* placeCell.swift in Sources */,
 				094616081F855571002B0208 /* Place.swift in Sources */,
 				094615DA1F8466B0002B0208 /* AppDelegate.swift in Sources */,
-				0946160A1F855653002B0208 /* SilentZoneListViewController.swift in Sources */,
+				0946160A1F855653002B0208 /* placeListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  SilentZoneListViewController.swift
+//  placeListViewController.swift
 //  SilentHelp
 //
 //  Created by MINA FUJISAWA on 2017/10/04.
@@ -10,13 +10,13 @@ import UIKit
 import GooglePlaces
 import UserNotifications
 
-class SilentZoneListViewController: UITableViewController {
+class placeListViewController: UITableViewController {
 
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
-    var silentZoneList: [Place]? = PlaceSet.getPlaceSetData()
+    var placeList: [Place]? = PlaceSet.getPlaceSetData()
     var locationManager: CLLocationManager?
     public var currentLocation: CLLocation?
-    let silentZoneListkey:String = "silentZoneListUserDefaultKey"
+    let placeListKey:String = "placeListUserDefaultKey"
 
 
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class SilentZoneListViewController: UITableViewController {
 
         navigationItem.title = "All Silent Zones"
         
-        setNotification(silentZoneList: silentZoneList)
+        setNotification(placeList: placeList)
     }
 
     // MARK: - Table view data source
@@ -39,16 +39,16 @@ class SilentZoneListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let list = silentZoneList {
+        if let list = placeList {
             return list.count
         }
         return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! SilentZoneCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! placeCell
 
-        if let list = silentZoneList {
+        if let list = placeList {
             cell.nameLabel?.text = list[indexPath.row].name
             cell.addressLabel?.text = list[indexPath.row].address
         }
@@ -62,26 +62,26 @@ class SilentZoneListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        silentZoneList!.remove(at: indexPath.row)
+        placeList!.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
         
         let defaults = UserDefaults.standard
-        if let list = silentZoneList {
-            defaults.set(NSKeyedArchiver.archivedData(withRootObject: list), forKey: silentZoneListkey)
+        if let list = placeList {
+            defaults.set(NSKeyedArchiver.archivedData(withRootObject: list), forKey: placeListKey)
         }
         
-        setNotification(silentZoneList: silentZoneList)
+        setNotification(placeList: placeList)
     }
 
     //MARK:segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToEdit" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                if let list = silentZoneList {
-                    let silentZone = list[indexPath.row]
+                if let list = placeList {
+                    let place = list[indexPath.row]
                     let editViewController = segue.destination as! EditTableViewController
-                    editViewController.silentZone = silentZone
-                    editViewController.list = silentZoneList
+                    editViewController.place = place
+                    editViewController.list = placeList
                     editViewController.test = indexPath.row
                 }
             }
@@ -98,7 +98,7 @@ class SilentZoneListViewController: UITableViewController {
     }
 }
 
-extension SilentZoneListViewController: CLLocationManagerDelegate {
+extension placeListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation = locations.first
         print("current location \(currentLocation)")
@@ -112,14 +112,14 @@ extension SilentZoneListViewController: CLLocationManagerDelegate {
     }
 }
 
-extension SilentZoneListViewController: UNUserNotificationCenterDelegate {
-    func setNotification(silentZoneList: [Place]?) {
+extension placeListViewController: UNUserNotificationCenterDelegate {
+    func setNotification(placeList: [Place]?) {
         // MARK: Notification
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in if granted {print("granted")}
         }
         
-        if let list = silentZoneList {
+        if let list = placeList {
             let radius: CLLocationDistance = 500.0
             let notificationId = "locationNotification"
             

@@ -9,7 +9,7 @@
 import UIKit
 
 class EditTableViewController: UIViewController, UITextFieldDelegate {
-    var silentZone: Place?
+    var place: Place?
     var list: [Place]?
     var test: Int?
     
@@ -19,13 +19,11 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
     
     var addressName : String?
     
-    // need to access the index of the Place and reload tableview
-    // after removing item from the silentZoneList array
     @IBAction func removeButton(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let listVC = storyBoard.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
+        let listVC = storyBoard.instantiateViewController(withIdentifier: "placeList") as! placeListViewController
         if let test = test {
-            listVC.silentZoneList?.remove(at: test)
+            listVC.placeList?.remove(at: test)
             print("removed at \(test)")
         }
     }
@@ -41,17 +39,17 @@ class EditTableViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let silentZone = silentZone else { return }
-        nameTextField.text = silentZone.name
-        addressLabel.text = silentZone.address
+        guard let place = place else { return }
+        nameTextField.text = place.name
+        addressLabel.text = place.address
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        guard let silentZone = silentZone else { return }
+        guard let place = place else { return }
         if let name = nameTextField.text {
-            silentZone.name = name
+            place.name = name
         }
     }
 

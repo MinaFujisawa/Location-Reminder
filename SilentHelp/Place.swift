@@ -42,12 +42,12 @@ class Place :NSObject, NSCoding {
 }
 
 struct PlaceSet {
-    
+    let placeListKey:String = placeListViewController().placeListKey
     static func resetDefaults() {
         let defaults = UserDefaults.standard
         let dictionary = defaults.dictionaryRepresentation()
         dictionary.keys.forEach { key in
-            defaults.removeObject(forKey: "silentZoneListUserDefaultKey")
+            defaults.removeObject(forKey: "placeListUserDefaultKey")
         }
         defaults.synchronize()
     }
@@ -55,8 +55,8 @@ struct PlaceSet {
     static func getPlaceSetData() -> [Place] {
         
         let defaults = UserDefaults.standard
-        if defaults.object(forKey: "silentZoneListUserDefaultKey") != nil{
-            return NSKeyedUnarchiver.unarchiveObject(with: defaults.object(forKey: "silentZoneListUserDefaultKey") as! Data) as! [Place]
+        if defaults.object(forKey: "placeListUserDefaultKey") != nil{
+            return NSKeyedUnarchiver.unarchiveObject(with: defaults.object(forKey: "placeListUserDefaultKey") as! Data) as! [Place]
         } else {
             return [Place]()
         }

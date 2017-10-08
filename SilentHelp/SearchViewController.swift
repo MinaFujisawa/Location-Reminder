@@ -10,7 +10,7 @@ import UIKit
 import GooglePlaces
 
 class SearchViewController: UIViewController {
-    let silentZoneListkey:String = SilentZoneListViewController().silentZoneListkey
+    let placeListKey:String = placeListViewController().placeListKey
     
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -49,21 +49,14 @@ extension SearchViewController: GMSAutocompleteResultsViewControllerDelegate {
         
         //Add new place
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let listVC = storyBoard.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
+        let listVC = storyBoard.instantiateViewController(withIdentifier: "placeList") as! placeListViewController
         let newPlace = Place(name: place.name, address: place.formattedAddress!, lat: place.coordinate.latitude, lon: place.coordinate.longitude)
-        var newSilentZoneList : [Place]
-        if let list = listVC.silentZoneList{
-            newSilentZoneList = list
-        } else {
-            newSilentZoneList = []
-        }
-        listVC.silentZoneList?.append(newPlace)
-        newSilentZoneList.append(newPlace)
+        listVC.placeList?.append(newPlace)
         let defaults = UserDefaults.standard
-        defaults.set(NSKeyedArchiver.archivedData(withRootObject: newSilentZoneList), forKey: silentZoneListkey)
+        defaults.set(NSKeyedArchiver.archivedData(withRootObject: listVC.placeList!), forKey: placeListKey)
 
         //Back to list page
-        let destVC = self.storyboard?.instantiateViewController(withIdentifier: "SilentZoneList") as! SilentZoneListViewController
+        let destVC = self.storyboard?.instantiateViewController(withIdentifier: "placeList") as! placeListViewController
         
         self.present(UINavigationController(rootViewController: destVC), animated: true, completion: {() -> Void in
             DispatchQueue.main.async {

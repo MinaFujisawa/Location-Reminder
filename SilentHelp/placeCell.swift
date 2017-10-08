@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SilentZoneCell: UITableViewCell {
+class placeCell: UITableViewCell {
     
     //TASK : Add outlet
  
