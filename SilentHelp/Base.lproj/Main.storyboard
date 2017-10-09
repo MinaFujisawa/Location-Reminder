@@ -5,41 +5,49 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Notification Places-->
+        <!--Notification Places-->
         <scene sceneID="shW-uV-zfn">
             <objects>
                 <tableViewController storyboardIdentifier="placeList" id="tPv-6v-Nib" customClass="PlaceListViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ar1-GC-Fcp">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ar1-GC-Fcp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="90" id="XqF-bj-IY9" customClass="placeCell" customModule="SilentHelp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="56" id="XqF-bj-IY9" customClass="placeCell" customModule="SilentHelp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XqF-bj-IY9" id="E08-1B-dgO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57z-re-TkZ">
-                                            <rect key="frame" x="17" y="57" width="338" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.31622409326424872" green="0.31622409326424872" blue="0.31622409326424872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPt-MP-2pe" userLabel="Location Name">
-                                            <rect key="frame" x="17" y="5" width="338" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPt-MP-2pe" userLabel="Location Name">
+                                            <rect key="frame" x="8" y="16" width="318" height="9"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Location Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57z-re-TkZ">
+                                            <rect key="frame" x="8" y="33" width="318" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" red="0.31622409326424872" green="0.31622409326424872" blue="0.31622409326424872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="57z-re-TkZ" firstAttribute="trailing" secondItem="BPt-MP-2pe" secondAttribute="trailing" id="5hf-ql-TSn"/>
+                                        <constraint firstItem="BPt-MP-2pe" firstAttribute="top" secondItem="E08-1B-dgO" secondAttribute="top" constant="16" id="MZg-Jd-D8q"/>
+                                        <constraint firstAttribute="bottom" secondItem="57z-re-TkZ" secondAttribute="bottom" constant="8" id="Rf0-tr-zdH"/>
+                                        <constraint firstItem="57z-re-TkZ" firstAttribute="leading" secondItem="BPt-MP-2pe" secondAttribute="leading" id="UGz-G1-R59"/>
+                                        <constraint firstItem="BPt-MP-2pe" firstAttribute="leading" secondItem="E08-1B-dgO" secondAttribute="leadingMargin" id="chV-7p-k86"/>
+                                        <constraint firstItem="57z-re-TkZ" firstAttribute="top" secondItem="BPt-MP-2pe" secondAttribute="bottom" constant="8" id="j4N-g7-eGn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BPt-MP-2pe" secondAttribute="trailing" constant="8" id="qkd-ao-Pj0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="messageLabel" destination="57z-re-TkZ" id="kyu-An-E0C"/>
@@ -53,7 +61,7 @@
                             <outlet property="delegate" destination="tPv-6v-Nib" id="a8p-NI-IHc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All Notification Places" id="qsp-jv-Vfb">
+                    <navigationItem key="navigationItem" title="Notification Places" id="qsp-jv-Vfb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qmD-E5-cMO">
                             <connections>
                                 <segue destination="J5H-AT-jrM" kind="show" id="6eN-a2-2qd"/>
@@ -281,13 +289,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="egi-Wi-14p"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pJE-rp-m0G">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="pJE-rp-m0G">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="nzP-pC-rFb">
-                            <rect key="frame" x="67.5" y="5.5" width="240" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>

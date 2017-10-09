@@ -15,7 +15,8 @@ class PlaceListViewController: UITableViewController {
     var placeList: [Place]? = PlaceSet.getPlaceSetData()
     var locationManager: CLLocationManager?
     public var currentLocation: CLLocation?
-    let placeListKey: String = "placeListUserDefaultKey"
+    let placeListKey = "placeListUserDefaultKey"
+    let cellIdentifier = "ListCell"
 
 
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class PlaceListViewController: UITableViewController {
         currentLocation = CLLocation()
         
         self.navigationItem.hidesBackButton = true
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         setNotification(placeList: placeList)
     }
@@ -47,7 +49,7 @@ class PlaceListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! placeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! placeCell
 
         if let list = placeList {
             cell.whereLabel?.text = list[indexPath.row].placeName
