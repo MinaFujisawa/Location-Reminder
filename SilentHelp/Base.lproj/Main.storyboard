@@ -197,7 +197,8 @@
                     <connections>
                         <outlet property="addressLabel" destination="bnT-TP-o4H" id="ZTq-80-ZDc"/>
                         <outlet property="doneButton" destination="MK7-Oc-u4X" id="atM-So-qeQ"/>
-                        <outlet property="nameTextField" destination="Usm-f4-5bg" id="0aB-AT-WW1"/>
+                        <outlet property="messageTextField" destination="Usm-f4-5bg" id="0aB-AT-WW1"/>
+                        <outlet property="placeNameLabel" destination="RP5-ao-3Hr" id="Rpu-nz-8UH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5F-au-cVl" userLabel="First Responder" sceneMemberID="firstResponder"/>

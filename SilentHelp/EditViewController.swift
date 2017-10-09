@@ -8,13 +8,14 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITextFieldDelegate {
+class EditViewController: UIViewController {
     var place: Place?
     var list: [Place]?
     var test: Int?
     
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     var addressName : String?
@@ -30,17 +31,16 @@ class EditViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.nameTextField.delegate = self
+        self.messageTextField.delegate = self
         
-        nameTextField.text = addressName
-    
-        // Do any additional setup after loading the view.
+        messageTextField.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let place = place else { return }
-        nameTextField.text = place.message
+        messageTextField.text = place.message
+        placeNameLabel.text = place.placeName
         addressLabel.text = place.fullAddress
     }
     
@@ -48,23 +48,17 @@ class EditViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(true)
         
         guard let place = place else { return }
-        if let name = nameTextField.text {
+        if let name = messageTextField.text {
             place.message = name
         }
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+extension EditViewController: UITextFieldDelegate {
     //Close keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        self.view.endEditing(true)
         return true
-    }
-    
-    func textFieldDidEndEditing(nameTextField: UITextField) {
-        addressName = nameTextField.text
     }
 }
