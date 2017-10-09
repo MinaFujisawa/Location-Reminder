@@ -34,6 +34,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.showsCancelButton = true
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.delegate = self
     }
 
     func textFieldDidChange(textField: UITextField) {
@@ -82,8 +85,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
-
-
 extension SearchViewController: GMSAutocompleteFetcherDelegate {
     func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         resultList = predictions
@@ -116,11 +117,11 @@ extension SearchViewController: CLLocationManagerDelegate {
                                          coordinate: swBoundsCorner)
         }
         
-        // Set up the autocomplete filter.
+        // Set up the autocomplete filter
         let filter = GMSAutocompleteFilter()
         filter.type = .establishment
         
-        // Create the fetcher.
+        // Create the fetcher
         fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)
         fetcher?.delegate = self
     }
@@ -131,3 +132,9 @@ extension SearchViewController: CLLocationManagerDelegate {
         }
     }
 }
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
