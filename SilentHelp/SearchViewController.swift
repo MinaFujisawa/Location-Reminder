@@ -17,10 +17,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet var searchFooter: SearchFooter!
     
     let searchController = UISearchController(searchResultsController: nil)
-    var resultList = [NSAttributedString]()
+    var resultList = [GMSAutocompletePrediction]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup Location Manager
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
@@ -32,43 +34,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
-        
-//        if let splitViewController = splitViewController {
-//            let controllers = splitViewController.viewControllers
-//            detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? DetailViewController
-//        }
-
-        // Set bounds to the current location
-        print("current location from search \(currentLocation)")
-        var bounds = GMSCoordinateBounds()
-        if let center = currentLocation?.coordinate {
-            let neBoundsCorner = CLLocationCoordinate2D(latitude: center.latitude + 0.001, longitude: center.longitude + 0.001)
-            let swBoundsCorner = CLLocationCoordinate2D(latitude: center.latitude - 0.001, longitude: center.longitude - 0.001)
-            bounds = GMSCoordinateBounds(coordinate: neBoundsCorner,
-                                         coordinate: swBoundsCorner)
-        }
-
-        // Set up the autocomplete filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .establishment
-
-        // Create the fetcher.
-        fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)
-        fetcher?.delegate = self
-
-//        textField?.addTarget(self, action: #selector(textFieldDidChange(textField:)),
-//                             for: .editingChanged)
-//        resultText?.text = "No Results"
-//        resultText?.isEditable = false
-
     }
 
-    @objc func textFieldDidChange(textField: UITextField) {
+    func textFieldDidChange(textField: UITextField) {
         fetcher?.sourceTextHasChanged(textField.text!)
     }
     
-    // MARK: - Table View
+    // MARK: Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -77,19 +49,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         if isFiltering() {
             return resultList.count
         }
-        
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchCell
-        var resultsStr = NSAttributedString()
         if isFiltering() {
-            resultsStr = resultList[indexPath.row]
-        } else {
-//            candy = candies[indexPath.row]
+            let resultsStr = resultList[indexPath.row]
+            cell.placeName.attributedText = resultsStr.attributedPrimaryText
+            cell.address.attributedText = resultsStr.attributedFullText
         }
-        cell.placeName.attributedText = resultsStr
         return cell
     }
     
@@ -98,29 +67,27 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
-//    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-//        filteredCandies = candies.filter({( candy : Candy) -> Bool in
-//            return candy.name.lowercased().contains(searchText.lowercased())
-//        })
-//
-//        tableView.reloadData()
-//    }
-    
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
-
+    
+    // MARK: navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 }
 
 
 extension SearchViewController: GMSAutocompleteFetcherDelegate {
     func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
-//        let resultsStr = NSMutableAttributedString()
-        for prediction in predictions {
-            resultList.append(prediction.attributedPrimaryText)
-        }
+        resultList = predictions
         tableView.reloadData()
-//        resultText?.attributedText = resultsStr
     }
     func didFailAutocompleteWithError(_ error: Error) {
 //        resultText?.text = error.localizedDescription
@@ -128,7 +95,6 @@ extension SearchViewController: GMSAutocompleteFetcherDelegate {
 }
 
 extension SearchViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
         fetcher?.sourceTextHasChanged(searchController.searchBar.text!)
         tableView.reloadData()
@@ -138,9 +104,25 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.first
-//        locationManager?.stopUpdatingHeading()
-
-
+        locationManager?.stopUpdatingHeading()
+        
+        // Set bounds to the current location
+        print("current location from search \(currentLocation)")
+        var bounds = GMSCoordinateBounds()
+        if let center = currentLocation?.coordinate {
+            let neBoundsCorner = CLLocationCoordinate2D(latitude: center.latitude + 0.001, longitude: center.longitude + 0.001)
+            let swBoundsCorner = CLLocationCoordinate2D(latitude: center.latitude - 0.001, longitude: center.longitude - 0.001)
+            bounds = GMSCoordinateBounds(coordinate: neBoundsCorner,
+                                         coordinate: swBoundsCorner)
+        }
+        
+        // Set up the autocomplete filter.
+        let filter = GMSAutocompleteFilter()
+        filter.type = .establishment
+        
+        // Create the fetcher.
+        fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)
+        fetcher?.delegate = self
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
