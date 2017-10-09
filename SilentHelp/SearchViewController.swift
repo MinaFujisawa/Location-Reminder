@@ -9,26 +9,26 @@
 import UIKit
 import GooglePlaces
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchViewController: UIViewController {
     var fetcher: GMSAutocompleteFetcher?
     var currentLocation: CLLocation?
     var locationManager: CLLocationManager?
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchFooter: SearchFooter!
-    
+
     let searchController = UISearchController(searchResultsController: nil)
     var resultList = [GMSAutocompletePrediction]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Setup Location Manager
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.startUpdatingLocation()
         currentLocation = CLLocation()
-        
+
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -39,11 +39,32 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchController.searchBar.delegate = self
     }
 
-    func textFieldDidChange(textField: UITextField) {
-        fetcher?.sourceTextHasChanged(textField.text!)
-    }
     
-    // MARK: Table View
+
+    // MARK: navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    //MARK:segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToAdd" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let prediction = resultList[indexPath.row]
+                let addViewController = segue.destination as! AddViewController
+                addViewController.prediction = prediction
+            }
+        }
+    }
+}
+
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -65,6 +86,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    func textFieldDidChange(textField: UITextField) {
+        fetcher?.sourceTextHasChanged(textField.text!)
+    }
+    
     func searchBarIsEmpty() -> Bool {
         // Returns true if the text is empty or nil
         return searchController.searchBar.text?.isEmpty ?? true
@@ -73,18 +98,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
-    
-    // MARK: navigation bar
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
 }
+
 extension SearchViewController: GMSAutocompleteFetcherDelegate {
     func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         resultList = predictions
@@ -106,7 +121,7 @@ extension SearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.first
         locationManager?.stopUpdatingHeading()
-        
+
         // Set bounds to the current location
         print("current location from search \(currentLocation)")
         var bounds = GMSCoordinateBounds()
@@ -116,11 +131,11 @@ extension SearchViewController: CLLocationManagerDelegate {
             bounds = GMSCoordinateBounds(coordinate: neBoundsCorner,
                                          coordinate: swBoundsCorner)
         }
-        
+
         // Set up the autocomplete filter
         let filter = GMSAutocompleteFilter()
         filter.type = .establishment
-        
+
         // Create the fetcher
         fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)
         fetcher?.delegate = self

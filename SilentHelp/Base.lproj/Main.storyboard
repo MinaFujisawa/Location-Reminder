@@ -209,6 +209,7 @@
                                         <connections>
                                             <outlet property="address" destination="2mb-jg-ZKx" id="zg9-Rd-yXQ"/>
                                             <outlet property="placeName" destination="kLp-d7-ETU" id="QHE-zg-5j3"/>
+                                            <segue destination="dHL-aS-oWK" kind="show" identifier="GoToAdd" id="vs5-ao-q9h"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

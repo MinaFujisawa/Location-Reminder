@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class AddViewController: UIViewController {
     let placeListKey:String = placeListViewController().placeListKey
+    var prediction : GMSAutocompletePrediction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let prediction = prediction else { return }
+//        nameTextField.text = prediction.attributedPrimaryText
+//        addressLabel.text = prediction.attributedFullText
     }
 }
 
