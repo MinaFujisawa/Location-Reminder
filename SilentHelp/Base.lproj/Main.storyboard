@@ -68,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="-540" y="-324"/>
         </scene>
-        <!--Add View Controller-->
+        <!--Add Notification Place-->
         <scene sceneID="asm-XA-RwB">
             <objects>
                 <viewController storyboardIdentifier="addViewController" id="dHL-aS-oWK" customClass="AddViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,7 +113,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="XYB-Nj-5Fk"/>
+                        <viewLayoutGuide key="safeArea" id="g3z-2n-7hu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Notification Place" id="HF4-Ag-Trd">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="UVP-4v-bIT"/>
@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ak7-vY-CLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208.8" y="-324.28785607196403"/>
+            <point key="canvasLocation" x="713" y="-325"/>
         </scene>
         <!--Edit Notification Place-->
         <scene sceneID="RKy-FG-V6b">
@@ -176,7 +176,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="hbd-sy-61r"/>
+                        <viewLayoutGuide key="safeArea" id="2YI-W9-Nqu"/>
                     </view>
                     <navigationItem key="navigationItem" id="5z3-2a-MkV">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="MK7-Oc-u4X">
@@ -212,16 +212,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJh-mV-bRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1606" y="-324"/>
+            <point key="canvasLocation" x="-1204" y="-325"/>
         </scene>
-        <!--Master-->
+        <!--Search-->
         <scene sceneID="jmP-hQ-9hL">
             <objects>
-                <viewController title="Master" id="J5H-AT-jrM" customClass="SearchViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Nyw-Si-Gun"/>
-                        <viewControllerLayoutGuide type="bottom" id="mtu-Ne-t1h"/>
-                    </layoutGuides>
+                <viewController title="Search" id="J5H-AT-jrM" customClass="SearchViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nJW-Id-md5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,12 +264,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mtu-Ne-t1h" firstAttribute="top" secondItem="jYE-yg-AzI" secondAttribute="bottom" id="3wj-cx-oph"/>
-                            <constraint firstAttribute="trailing" secondItem="jYE-yg-AzI" secondAttribute="trailing" id="5bJ-sr-34X"/>
-                            <constraint firstItem="jYE-yg-AzI" firstAttribute="leading" secondItem="nJW-Id-md5" secondAttribute="leading" id="N64-TA-KoW"/>
+                            <constraint firstItem="egi-Wi-14p" firstAttribute="bottom" secondItem="jYE-yg-AzI" secondAttribute="bottom" id="3wj-cx-oph"/>
+                            <constraint firstItem="egi-Wi-14p" firstAttribute="trailing" secondItem="jYE-yg-AzI" secondAttribute="trailing" id="5bJ-sr-34X"/>
+                            <constraint firstItem="jYE-yg-AzI" firstAttribute="leading" secondItem="egi-Wi-14p" secondAttribute="leading" id="N64-TA-KoW"/>
                             <constraint firstItem="jYE-yg-AzI" firstAttribute="top" secondItem="nJW-Id-md5" secondAttribute="top" id="eK0-8f-Y00"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="4SA-Ak-WSF"/>
+                        <viewLayoutGuide key="safeArea" id="egi-Wi-14p"/>
                     </view>
                     <navigationItem key="navigationItem" id="pJE-rp-m0G">
                         <nil key="title"/>
@@ -291,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaK-Tf-hzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="340" y="-324"/>
+            <point key="canvasLocation" x="119" y="-326"/>
         </scene>
     </scenes>
 </document>
