@@ -9,9 +9,11 @@
 import UIKit
 
 class EditViewController: UIViewController {
+    let placeListKey: String = PlaceListViewController().placeListKey
+    
     var place: Place?
     var list: [Place]?
-    var test: Int?
+    var rowIndex: Int?
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
@@ -21,11 +23,15 @@ class EditViewController: UIViewController {
     var addressName : String?
     
     @IBAction func removeButton(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let listVC = storyBoard.instantiateViewController(withIdentifier: "placeList") as! PlaceListViewController
-        if let test = test {
-            listVC.placeList?.remove(at: test)
-            print("removed at \(test)")
+        let listVC = PlaceListViewController()
+        if let index = rowIndex {
+            listVC.placeList?.remove(at: index)
+            let defaults = UserDefaults.standard
+            defaults.set(NSKeyedArchiver.archivedData(withRootObject: listVC.placeList!), forKey: self.placeListKey)
+            // Back to List page
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let destVC = storyBoard.instantiateViewController(withIdentifier: "placeList") as! PlaceListViewController
+            self.navigationController?.pushViewController(destVC, animated: true)
         }
     }
     
@@ -46,10 +52,9 @@ class EditViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         guard let place = place else { return }
-        if let name = messageTextField.text {
-            place.message = name
+        if let message = messageTextField.text {
+            place.message = message
         }
     }
 }
