@@ -16,7 +16,7 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var placeNameLabel: UILabel!
-    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var messageTextField: UITextField!
     
     @IBAction func doneButton(_ sender: Any) {
         //        // TODO : Prevent empty comment
@@ -31,7 +31,7 @@ class AddViewController: UIViewController {
             let lon = placemark?.location?.coordinate.longitude
             
             // Add new Place
-            let newPlace = Place(comment: self.commentTextField.text!, placeName: (self.prediction?.attributedPrimaryText.string)!, fullAddress: (self.prediction?.attributedFullText.string)!, lat: lat!, lon: lon!)
+            let newPlace = Place(message: self.messageTextField.text!, placeName: (self.prediction?.attributedPrimaryText.string)!, fullAddress: (self.prediction?.attributedFullText.string)!, lat: lat!, lon: lon!)
             let listVC = PlaceListViewController()
             listVC.placeList?.append(newPlace)
             let defaults = UserDefaults.standard

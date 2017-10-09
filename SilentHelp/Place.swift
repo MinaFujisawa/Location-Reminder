@@ -10,7 +10,7 @@ import Foundation
 import GooglePlaces
 
 class Place :NSObject, NSCoding {
-    var comment: String
+    var message: String
     var placeName: String
     var fullAddress: String?
     var lat : CLLocationDegrees
@@ -19,8 +19,8 @@ class Place :NSObject, NSCoding {
         return CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
 
-    init(comment: String, placeName:String, fullAddress: String, lat:CLLocationDegrees, lon: CLLocationDegrees) {
-        self.comment = comment
+    init(message: String, placeName:String, fullAddress: String, lat:CLLocationDegrees, lon: CLLocationDegrees) {
+        self.message = message
         self.placeName = placeName
         self.fullAddress = fullAddress
         self.lat = lat
@@ -28,7 +28,7 @@ class Place :NSObject, NSCoding {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.comment = aDecoder.decodeObject(forKey: "comment") as! String;
+        self.message = aDecoder.decodeObject(forKey: "message") as! String;
         self.placeName = aDecoder.decodeObject(forKey: "placeName") as! String;
         self.fullAddress = aDecoder.decodeObject(forKey: "fullAddress") as! String;
         self.lat = aDecoder.decodeDouble(forKey: "lat") as! CLLocationDegrees;
@@ -36,7 +36,7 @@ class Place :NSObject, NSCoding {
     }
 
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.comment, forKey: "comment")
+        aCoder.encode(self.message, forKey: "message")
         aCoder.encode(self.placeName, forKey: "placeName")
         aCoder.encode(self.fullAddress, forKey: "fullAddress")
         aCoder.encode(self.lat, forKey: "lat")

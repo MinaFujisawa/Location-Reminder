@@ -49,7 +49,7 @@ class PlaceListViewController: UITableViewController {
 
         if let list = placeList {
             cell.whereLabel?.text = list[indexPath.row].placeName
-            cell.commentLabel?.text = list[indexPath.row].comment
+            cell.messageLabel?.text = list[indexPath.row].message
         }
         return cell
     }
@@ -132,7 +132,7 @@ extension PlaceListViewController: UNUserNotificationCenterDelegate {
                 //set content
                 let content = UNMutableNotificationContent()
                 content.title = "Near " + place.placeName
-                content.body = place.comment
+                content.body = place.message
 
                 //set trigger
                 let trigger = UNLocationNotificationTrigger(region: region, repeats: false)

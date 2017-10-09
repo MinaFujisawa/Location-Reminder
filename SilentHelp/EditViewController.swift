@@ -40,7 +40,7 @@ class EditViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let place = place else { return }
-        nameTextField.text = place.comment
+        nameTextField.text = place.message
         addressLabel.text = place.fullAddress
     }
     
@@ -49,7 +49,7 @@ class EditViewController: UIViewController, UITextFieldDelegate {
         
         guard let place = place else { return }
         if let name = nameTextField.text {
-            place.comment = name
+            place.message = name
         }
     }
 

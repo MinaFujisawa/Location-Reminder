@@ -68,6 +68,7 @@ class SearchViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        locationManager?.stopUpdatingHeading()
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
@@ -145,6 +146,7 @@ extension SearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.first
         locationManager?.stopUpdatingHeading()
+        locationManager?.delegate = nil
 
         // Set bounds to the current location
         print("current location from search \(currentLocation)")
@@ -167,7 +169,7 @@ extension SearchViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
-            self.locationManager?.startUpdatingLocation()
+//            self.locationManager?.startUpdatingLocation()
         }
     }
 }

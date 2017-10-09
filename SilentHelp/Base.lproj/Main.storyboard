@@ -42,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="commentLabel" destination="57z-re-TkZ" id="kyu-An-E0C"/>
+                                    <outlet property="messageLabel" destination="57z-re-TkZ" id="kyu-An-E0C"/>
                                     <outlet property="whereLabel" destination="BPt-MP-2pe" id="Tec-yI-Xyh"/>
                                     <segue destination="u0Z-OT-8aX" kind="show" identifier="GoToEdit" id="Avg-dN-y7x"/>
                                 </connections>
@@ -124,7 +124,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="gUa-da-R3W" id="Mbt-qC-UF5"/>
-                        <outlet property="commentTextField" destination="cYM-7h-0Fe" id="W9w-VC-12K"/>
+                        <outlet property="messageTextField" destination="cYM-7h-0Fe" id="W9w-VC-12K"/>
                         <outlet property="placeNameLabel" destination="pLB-55-AFF" id="foc-Mu-QyE"/>
                     </connections>
                 </viewController>
@@ -140,7 +140,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnX-Uu-fhL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnX-Uu-fhL">
                                 <rect key="frame" x="16" y="94" width="100" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
