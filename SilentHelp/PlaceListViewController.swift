@@ -25,7 +25,9 @@ class PlaceListViewController: UITableViewController {
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.requestWhenInUseAuthorization()
         currentLocation = CLLocation()
-
+        
+        self.navigationItem.hidesBackButton = true
+        
         setNotification(placeList: placeList)
     }
     

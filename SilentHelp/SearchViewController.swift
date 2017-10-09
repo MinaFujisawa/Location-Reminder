@@ -68,7 +68,6 @@ class SearchViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        locationManager?.stopUpdatingHeading()
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
