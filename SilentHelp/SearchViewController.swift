@@ -9,14 +9,16 @@
 import UIKit
 import GooglePlaces
 
-class SearchViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var textField: UITextField!
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var fetcher: GMSAutocompleteFetcher?
     var currentLocation: CLLocation?
     var locationManager: CLLocationManager?
-    var resultList: [NSMutableAttributedString]?
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchFooter: SearchFooter!
     
+    let searchController = UISearchController(searchResultsController: nil)
+    var resultList = [NSAttributedString]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager = CLLocationManager()
@@ -24,10 +26,18 @@ class SearchViewController: UIViewController {
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.startUpdatingLocation()
         currentLocation = CLLocation()
-
-        view.backgroundColor = .white
-        edgesForExtendedLayout = []
-
+        
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
+        
+//        if let splitViewController = splitViewController {
+//            let controllers = splitViewController.viewControllers
+//            detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? DetailViewController
+//        }
 
         // Set bounds to the current location
         print("current location from search \(currentLocation)")
@@ -47,8 +57,8 @@ class SearchViewController: UIViewController {
         fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)
         fetcher?.delegate = self
 
-        textField?.addTarget(self, action: #selector(textFieldDidChange(textField:)),
-                             for: .editingChanged)
+//        textField?.addTarget(self, action: #selector(textFieldDidChange(textField:)),
+//                             for: .editingChanged)
 //        resultText?.text = "No Results"
 //        resultText?.isEditable = false
 
@@ -57,38 +67,49 @@ class SearchViewController: UIViewController {
     @objc func textFieldDidChange(textField: UITextField) {
         fetcher?.sourceTextHasChanged(textField.text!)
     }
-}
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-    /// セルの個数を指定するデリゲートメソッド（必須）
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let list = resultList {
-            return list.count
-        } else {
-            return 0
+        if isFiltering() {
+            return resultList.count
         }
+        
+        return 0
     }
-
-    /// セルに値を設定するデータソースメソッド（必須）
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        // セルを取得する
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell") as! SearchCell
-
-        // セルに表示する値を設定する
-        cell.address.text = "address"
-        cell.placeName.text = "placeName"
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchCell
+        var resultsStr = NSAttributedString()
+        if isFiltering() {
+            resultsStr = resultList[indexPath.row]
+        } else {
+//            candy = candies[indexPath.row]
+        }
+        cell.placeName.attributedText = resultsStr
         return cell
     }
-
-    /// セルが選択された時に呼ばれるデリゲートメソッド
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
     }
+    
+//    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+//        filteredCandies = candies.filter({( candy : Candy) -> Bool in
+//            return candy.name.lowercased().contains(searchText.lowercased())
+//        })
+//
+//        tableView.reloadData()
+//    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+
 }
 
 
@@ -96,13 +117,21 @@ extension SearchViewController: GMSAutocompleteFetcherDelegate {
     func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
 //        let resultsStr = NSMutableAttributedString()
         for prediction in predictions {
-            resultList?.append(prediction.attributedPrimaryText as! NSMutableAttributedString)
-            tableView.reloadData()
+            resultList.append(prediction.attributedPrimaryText)
         }
+        tableView.reloadData()
 //        resultText?.attributedText = resultsStr
     }
     func didFailAutocompleteWithError(_ error: Error) {
 //        resultText?.text = error.localizedDescription
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        fetcher?.sourceTextHasChanged(searchController.searchBar.text!)
+        tableView.reloadData()
     }
 }
 
