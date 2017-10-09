@@ -12,7 +12,6 @@ import UserNotifications
 
 class PlaceListViewController: UITableViewController {
 
-//    var silentZoneList : [Place]? = DemoSet.getDemoData()
     var placeList: [Place]? = PlaceSet.getPlaceSetData()
     var locationManager: CLLocationManager?
     public var currentLocation: CLLocation?
@@ -28,7 +27,6 @@ class PlaceListViewController: UITableViewController {
         currentLocation = CLLocation()
 
         setNotification(placeList: placeList)
-        tableView.reloadData()
     }
     
     
@@ -104,8 +102,8 @@ class PlaceListViewController: UITableViewController {
 
 extension PlaceListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let currentLocation = locations.first
-        print("current location \(currentLocation)")
+//        let currentLocation = locations.first
+//        print("current location \(currentLocation)")
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -118,7 +116,7 @@ extension PlaceListViewController: UNUserNotificationCenterDelegate {
     func setNotification(placeList: [Place]?) {
         // MARK: Notification
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in if granted { print("granted") }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in if granted { print("granted") }
         }
 
         if let list = placeList {
@@ -133,13 +131,11 @@ extension PlaceListViewController: UNUserNotificationCenterDelegate {
 
                 //set content
                 let content = UNMutableNotificationContent()
-                content.title = "My Notification Management Demo"
-                content.subtitle = "Timed Notification"
-                content.body = "Notification pressed"
+                content.title = "Near " + place.placeName
+                content.body = place.comment
 
                 //set trigger
                 let trigger = UNLocationNotificationTrigger(region: region, repeats: false)
-
                 let request = UNNotificationRequest(identifier: "locationNotification", content: content, trigger: trigger)
 
                 //Schedule the request
