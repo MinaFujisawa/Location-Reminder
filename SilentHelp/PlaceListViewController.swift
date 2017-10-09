@@ -10,7 +10,7 @@ import UIKit
 import GooglePlaces
 import UserNotifications
 
-class placeListViewController: UITableViewController {
+class PlaceListViewController: UITableViewController {
 
 //    var silentZoneList : [Place]? = DemoSet.getDemoData()
     var placeList: [Place]? = PlaceSet.getPlaceSetData()
@@ -27,9 +27,8 @@ class placeListViewController: UITableViewController {
         locationManager?.requestWhenInUseAuthorization()
         currentLocation = CLLocation()
 
-        navigationItem.title = "All Silent Zones"
-
         setNotification(placeList: placeList)
+        tableView.reloadData()
     }
     
     
@@ -103,7 +102,7 @@ class placeListViewController: UITableViewController {
     }
 }
 
-extension placeListViewController: CLLocationManagerDelegate {
+extension PlaceListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation = locations.first
         print("current location \(currentLocation)")
@@ -115,7 +114,7 @@ extension placeListViewController: CLLocationManagerDelegate {
     }
 }
 
-extension placeListViewController: UNUserNotificationCenterDelegate {
+extension PlaceListViewController: UNUserNotificationCenterDelegate {
     func setNotification(placeList: [Place]?) {
         // MARK: Notification
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()

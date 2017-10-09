@@ -10,29 +10,49 @@ import UIKit
 import GooglePlaces
 
 class AddViewController: UIViewController {
-    let placeListKey:String = placeListViewController().placeListKey
+    let placeListKey:String = PlaceListViewController().placeListKey
     var prediction : GMSAutocompletePrediction?
     
+    
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet weak var commentTextField: UITextField!
+    
+    @IBAction func doneButton(_ sender: Any) {
+        //        // TODO : Prevent empty comment
+        
+        // Get lat and lon
+        var geocoder = CLGeocoder()
+        print("current address \((prediction?.attributedFullText.string)!)")
+        geocoder.geocodeAddressString((prediction?.attributedFullText.string)!) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            let lat = placemark?.location?.coordinate.latitude
+            let lon = placemark?.location?.coordinate.longitude
+            
+            // Add new Place
+            let newPlace = Place(comment: self.commentTextField.text!, placeName: (self.prediction?.attributedPrimaryText.string)!, fullAddress: (self.prediction?.attributedFullText.string)!, lat: lat!, lon: lon!)
+            let listVC = PlaceListViewController()
+            listVC.placeList?.append(newPlace)
+            let defaults = UserDefaults.standard
+            defaults.set(NSKeyedArchiver.archivedData(withRootObject: listVC.placeList!), forKey: self.placeListKey)
+            
+            // Back to List page
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let destVC = storyBoard.instantiateViewController(withIdentifier: "placeList") as! PlaceListViewController
+            self.navigationController?.pushViewController(destVC, animated: true)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let prediction = prediction else { return }
-//        nameTextField.text = prediction.attributedPrimaryText
-//        addressLabel.text = prediction.attributedFullText
+        placeNameLabel.attributedText = prediction.attributedPrimaryText
+        addressLabel.attributedText = prediction.attributedFullText
     }
 }
-
-//For Paulo : ↓They are code that had written in SearchViewController.
-
-////Save to the UserDefaults
-//let newPlace = Place(comment: place.name, address: place.formattedAddress!, lat: place.coordinate.latitude, lon: place.coordinate.longitude)
-//let listVC = placeListViewController()
-//listVC.placeList?.append(newPlace)
-//let defaults = UserDefaults.standard
-//defaults.set(NSKeyedArchiver.archivedData(withRootObject: listVC.placeList!), forKey: placeListKey)
 

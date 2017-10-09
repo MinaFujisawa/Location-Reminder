@@ -21,7 +21,7 @@ class EditViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func removeButton(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let listVC = storyBoard.instantiateViewController(withIdentifier: "placeList") as! placeListViewController
+        let listVC = storyBoard.instantiateViewController(withIdentifier: "placeList") as! PlaceListViewController
         if let test = test {
             listVC.placeList?.remove(at: test)
             print("removed at \(test)")

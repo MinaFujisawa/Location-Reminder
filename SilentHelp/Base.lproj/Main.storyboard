@@ -12,7 +12,7 @@
         <!--All Notification Places-->
         <scene sceneID="shW-uV-zfn">
             <objects>
-                <tableViewController storyboardIdentifier="placeList" id="tPv-6v-Nib" customClass="placeListViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="placeList" id="tPv-6v-Nib" customClass="PlaceListViewController" customModule="SilentHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ar1-GC-Fcp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LU-Pu-nbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-540" y="-324"/>
+            <point key="canvasLocation" x="-586" y="-324"/>
         </scene>
         <!--Add Notification Place-->
         <scene sceneID="asm-XA-RwB">
@@ -116,12 +116,21 @@
                         <viewLayoutGuide key="safeArea" id="g3z-2n-7hu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Notification Place" id="HF4-Ag-Trd">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="UVP-4v-bIT"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="UVP-4v-bIT">
+                            <connections>
+                                <action selector="doneButton:" destination="dHL-aS-oWK" id="16L-dd-Rsd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="gUa-da-R3W" id="Mbt-qC-UF5"/>
+                        <outlet property="commentTextField" destination="cYM-7h-0Fe" id="W9w-VC-12K"/>
+                        <outlet property="placeNameLabel" destination="pLB-55-AFF" id="foc-Mu-QyE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ak7-vY-CLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="-325"/>
+            <point key="canvasLocation" x="1004" y="-324"/>
         </scene>
         <!--Edit Notification Place-->
         <scene sceneID="RKy-FG-V6b">
@@ -212,7 +221,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJh-mV-bRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1204" y="-325"/>
+            <point key="canvasLocation" x="-1441" y="-324"/>
         </scene>
         <!--Search-->
         <scene sceneID="jmP-hQ-9hL">
@@ -287,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaK-Tf-hzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="-326"/>
+            <point key="canvasLocation" x="228" y="-324"/>
         </scene>
     </scenes>
 </document>

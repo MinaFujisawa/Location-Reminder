@@ -46,7 +46,7 @@ class Place :NSObject, NSCoding {
 }
 
 struct PlaceSet {
-    let placeListKey:String = placeListViewController().placeListKey
+    let placeListKey:String = PlaceListViewController().placeListKey
     static func resetDefaults() {
         let defaults = UserDefaults.standard
         let dictionary = defaults.dictionaryRepresentation()
