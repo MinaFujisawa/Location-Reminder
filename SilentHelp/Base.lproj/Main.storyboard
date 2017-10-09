@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,10 +57,13 @@
                     <navigationItem key="navigationItem" title="All Notification Places" id="qsp-jv-Vfb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qmD-E5-cMO">
                             <connections>
-                                <segue destination="Jpk-2G-nHx" kind="show" id="45I-BN-HHA"/>
+                                <segue destination="Jpk-2G-nHx" kind="show" identifier="GoToSearch" id="45I-BN-HHA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ar1-GC-Fcp" id="Ic3-sa-uzW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LU-Pu-nbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,6 +113,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wMW-sO-K7N" firstAttribute="top" secondItem="H2y-zx-5pk" secondAttribute="bottom" id="2wP-V7-ya5"/>
+                            <constraint firstItem="H2y-zx-5pk" firstAttribute="top" secondItem="bUU-mx-1Y4" secondAttribute="top" id="7Tw-fi-2nM"/>
+                            <constraint firstItem="wMW-sO-K7N" firstAttribute="leading" secondItem="bUU-mx-1Y4" secondAttribute="leading" id="Cpk-xW-LFe"/>
+                            <constraint firstItem="bUU-mx-1Y4" firstAttribute="trailing" secondItem="wMW-sO-K7N" secondAttribute="trailing" id="Dor-Q2-Mfj"/>
+                            <constraint firstItem="bUU-mx-1Y4" firstAttribute="bottom" secondItem="wMW-sO-K7N" secondAttribute="bottom" id="E73-Kd-saG"/>
+                            <constraint firstItem="H2y-zx-5pk" firstAttribute="leading" secondItem="bUU-mx-1Y4" secondAttribute="leading" id="aP3-Ms-mwZ"/>
+                            <constraint firstItem="bUU-mx-1Y4" firstAttribute="trailing" secondItem="H2y-zx-5pk" secondAttribute="trailing" id="rg9-BY-nxZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bUU-mx-1Y4"/>
                     </view>
                     <toolbarItems/>

@@ -16,7 +16,7 @@ class placeListViewController: UITableViewController {
     var placeList: [Place]? = PlaceSet.getPlaceSetData()
     var locationManager: CLLocationManager?
     public var currentLocation: CLLocation?
-    let placeListKey:String = "placeListUserDefaultKey"
+    let placeListKey: String = "placeListUserDefaultKey"
 
 
     override func viewDidLoad() {
@@ -28,9 +28,11 @@ class placeListViewController: UITableViewController {
         currentLocation = CLLocation()
 
         navigationItem.title = "All Silent Zones"
-        
+
         setNotification(placeList: placeList)
     }
+    
+    
 
     // MARK: - Table view data source
 
@@ -63,12 +65,12 @@ class placeListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         placeList!.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
-        
+
         let defaults = UserDefaults.standard
         if let list = placeList {
             defaults.set(NSKeyedArchiver.archivedData(withRootObject: list), forKey: placeListKey)
         }
-        
+
         setNotification(placeList: placeList)
     }
 
@@ -84,6 +86,10 @@ class placeListViewController: UITableViewController {
                     editViewController.test = indexPath.row
                 }
             }
+        }
+        if segue.identifier == "GoToSearch" {
+            let searchViewController = segue.destination as! SearchViewController
+            searchViewController.currentLocation = self.currentLocation
         }
     }
 
@@ -113,50 +119,50 @@ extension placeListViewController: UNUserNotificationCenterDelegate {
     func setNotification(placeList: [Place]?) {
         // MARK: Notification
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in if granted {print("granted")}
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in if granted { print("granted") }
         }
-        
+
         if let list = placeList {
             let radius: CLLocationDistance = 500.0
             let notificationId = "locationNotification"
-            
+
             for (index, place) in list.enumerated() {
                 print ("set \(list[index].coordinate)")
                 let region = CLCircularRegion(center: place.coordinate, radius: radius,
                                               identifier: notificationId + String(index))
                 region.notifyOnEntry = true
-                
+
                 //set content
                 let content = UNMutableNotificationContent()
                 content.title = "My Notification Management Demo"
                 content.subtitle = "Timed Notification"
                 content.body = "Notification pressed"
-                
+
                 //set trigger
                 let trigger = UNLocationNotificationTrigger(region: region, repeats: false)
-                
+
                 let request = UNNotificationRequest(identifier: "locationNotification", content: content, trigger: trigger)
-                
+
                 //Schedule the request
                 let center = UNUserNotificationCenter.current()
                 center.add(request)
                 center.delegate = self
             }
         }
-        
+
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert,.sound])
+        completionHandler([.alert, .sound])
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
-        
+
 }
 
