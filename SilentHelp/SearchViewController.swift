@@ -14,7 +14,6 @@ class SearchViewController: UIViewController {
     var currentLocation: CLLocation?
     var locationManager: CLLocationManager?
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var searchFooter: SearchFooter!
 
     let searchController = UISearchController(searchResultsController: nil)
     var resultList = [GMSAutocompletePrediction]()
@@ -34,9 +33,29 @@ class SearchViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.showsCancelButton = true
+        
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.isActive = true
         searchController.searchBar.delegate = self
+        searchController.delegate = self
+        
+        // MARK:UI of navi bar
+        searchController.searchBar.showsCancelButton = true
+        searchController.searchBar.barTintColor = UIColor.white
+        
+        // Add border
+        let searchBar = searchController.searchBar
+        let frame = CGRect(x: 0, y: searchBar.frame.size.height - 1, width: view.frame.size.width, height: 1)
+        let border = UIView(frame: frame)
+        border.backgroundColor = UIColor.lightGray
+        searchBar.addSubview(border)
+        
+        // Change color of the cancel button
+        let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes, for: UIControlState.normal)
+        
+        // Remove border under the status bar
+        searchController.searchBar.backgroundImage = UIImage()
     }
 
     
@@ -116,7 +135,12 @@ extension SearchViewController: UISearchResultsUpdating {
         tableView.reloadData()
     }
 }
-
+extension SearchViewController: UISearchControllerDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        //Focus the searchbar automatically
+        self.searchController.searchBar.becomeFirstResponder()
+    }
+}
 extension SearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.first

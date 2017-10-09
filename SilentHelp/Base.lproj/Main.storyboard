@@ -218,23 +218,13 @@
                                     <outlet property="delegate" destination="J5H-AT-jrM" id="4T4-NF-yb6"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWN-dy-Do1" customClass="SearchFooter">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="9bB-Gd-eCI"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mtu-Ne-t1h" firstAttribute="top" secondItem="jYE-yg-AzI" secondAttribute="bottom" id="3wj-cx-oph"/>
                             <constraint firstAttribute="trailing" secondItem="jYE-yg-AzI" secondAttribute="trailing" id="5bJ-sr-34X"/>
-                            <constraint firstItem="mtu-Ne-t1h" firstAttribute="top" secondItem="ZWN-dy-Do1" secondAttribute="bottom" id="9Y5-lv-lG2"/>
                             <constraint firstItem="jYE-yg-AzI" firstAttribute="leading" secondItem="nJW-Id-md5" secondAttribute="leading" id="N64-TA-KoW"/>
-                            <constraint firstItem="ZWN-dy-Do1" firstAttribute="leading" secondItem="nJW-Id-md5" secondAttribute="leading" id="cXL-HB-bhX"/>
                             <constraint firstItem="jYE-yg-AzI" firstAttribute="top" secondItem="nJW-Id-md5" secondAttribute="top" id="eK0-8f-Y00"/>
-                            <constraint firstAttribute="trailing" secondItem="ZWN-dy-Do1" secondAttribute="trailing" id="jYH-6J-9n4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4SA-Ak-WSF"/>
                     </view>
@@ -248,7 +238,6 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="searchFooter" destination="ZWN-dy-Do1" id="tb5-wu-bUM"/>
                         <outlet property="tableView" destination="jYE-yg-AzI" id="96d-lC-LY5"/>
                         <outlet property="view" destination="nJW-Id-md5" id="2cV-Rr-o3d"/>
                     </connections>
