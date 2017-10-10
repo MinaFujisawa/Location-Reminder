@@ -31,34 +31,37 @@ class SearchViewController: UIViewController {
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
+
         tableView.tableHeaderView = searchController.searchBar
-        
-        searchController.hidesNavigationBarDuringPresentation = false
+
         searchController.isActive = true
         searchController.searchBar.delegate = self
         searchController.delegate = self
-        
+
         // MARK:UI of navi bar
         searchController.searchBar.showsCancelButton = true
         searchController.searchBar.barTintColor = UIColor.white
-        
+
+        // Prevent overlaps
+        definesPresentationContext = true
+        searchController.hidesNavigationBarDuringPresentation = false
+
         // Add border
         let searchBar = searchController.searchBar
         let frame = CGRect(x: 0, y: searchBar.frame.size.height - 1, width: view.frame.size.width, height: 1)
         let border = UIView(frame: frame)
         border.backgroundColor = UIColor.lightGray
         searchBar.addSubview(border)
-        
+
         // Change color of the cancel button
         let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
         UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes, for: UIControlState.normal)
-        
+
         // Remove border under the status bar
         searchController.searchBar.backgroundImage = UIImage()
     }
 
-    
+
 
     // MARK: navigation bar
     override func viewWillAppear(_ animated: Bool) {
@@ -83,18 +86,18 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
             return resultList.count
         }
         return 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchCell
         if isFiltering() {
@@ -104,16 +107,16 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
         }
         return cell
     }
-    
+
     func textFieldDidChange(textField: UITextField) {
         fetcher?.sourceTextHasChanged(textField.text!)
     }
-    
+
     func searchBarIsEmpty() -> Bool {
         // Returns true if the text is empty or nil
         return searchController.searchBar.text?.isEmpty ?? true
     }
-    
+
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
@@ -148,7 +151,7 @@ extension SearchViewController: CLLocationManagerDelegate {
         locationManager?.delegate = nil
 
         // Set bounds to the current location
-        print("current location from search \(currentLocation)")
+        print("current location from search \(String(describing: currentLocation))")
         var bounds = GMSCoordinateBounds()
         if let center = currentLocation?.coordinate {
             let neBoundsCorner = CLLocationCoordinate2D(latitude: center.latitude + 0.001, longitude: center.longitude + 0.001)

@@ -14,7 +14,6 @@ class AddViewController: UIViewController {
     var prediction: GMSAutocompletePrediction?
 
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var messageTextField: UITextField!
 
     @IBAction func doneButton(_ sender: Any) {
@@ -63,7 +62,6 @@ class AddViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let prediction = prediction else { return }
-        placeNameLabel.attributedText = prediction.attributedPrimaryText
         addressLabel.attributedText = prediction.attributedFullText
     }
 }
