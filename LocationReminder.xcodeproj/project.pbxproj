@@ -21,7 +21,7 @@
 		09AAAF4B1F8A75BA004B05C8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AAAF4A1F8A75BA004B05C8 /* AddViewController.swift */; };
 		09B5035B1F899B2A003FA2B9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B5035A1F899B2A003FA2B9 /* CoreLocation.framework */; };
 		09D9CAE91F86A9C6006FED45 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */; };
-		7BEABFDDDDFCFD4EB0D49ACD /* libPods-SilentHelp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0446C73EB09D6C67B15A11A /* libPods-SilentHelp.a */; };
+		5823FC4CDD3335623F62A6F9 /* libPods-LocationReminder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA0DC2C721733DD38378902 /* libPods-LocationReminder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,16 +42,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		094615D61F8466B0002B0208 /* SilentHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilentHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		094615D61F8466B0002B0208 /* LocationReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		094615D91F8466B0002B0208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		094615DE1F8466B0002B0208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		094615E01F8466B0002B0208 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		094615E31F8466B0002B0208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		094615E51F8466B0002B0208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		094615EA1F8466B0002B0208 /* SilentHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SilentHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		094615EA1F8466B0002B0208 /* LocationReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationReminderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		094615EE1F8466B0002B0208 /* SilentHelpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentHelpTests.swift; sourceTree = "<group>"; };
 		094615F01F8466B0002B0208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		094615F51F8466B0002B0208 /* SilentHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SilentHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		094615F51F8466B0002B0208 /* LocationReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationReminderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		094615F91F8466B0002B0208 /* SilentHelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentHelpUITests.swift; sourceTree = "<group>"; };
 		094615FB1F8466B0002B0208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		094616071F855571002B0208 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -63,6 +63,9 @@
 		09B5035A1F899B2A003FA2B9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		18BEFEDA8CC900E868AD1ACB /* Pods-SilentHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp.release.xcconfig"; sourceTree = "<group>"; };
+		3DF42837FFC7633AA5D13888 /* Pods-LocationReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocationReminder/Pods-LocationReminder.release.xcconfig"; sourceTree = "<group>"; };
+		3F40B2F7BD2116DDBB160F19 /* Pods-LocationReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocationReminder/Pods-LocationReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		6BA0DC2C721733DD38378902 /* libPods-LocationReminder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocationReminder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D9EB05A852DD7B0C2F84E0 /* Pods-SilentHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0446C73EB09D6C67B15A11A /* libPods-SilentHelp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SilentHelp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,7 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09B5035B1F899B2A003FA2B9 /* CoreLocation.framework in Frameworks */,
-				7BEABFDDDDFCFD4EB0D49ACD /* libPods-SilentHelp.a in Frameworks */,
+				5823FC4CDD3335623F62A6F9 /* libPods-LocationReminder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,9 +100,9 @@
 		094615CD1F8466B0002B0208 = {
 			isa = PBXGroup;
 			children = (
-				094615D81F8466B0002B0208 /* SilentHelp */,
-				094615ED1F8466B0002B0208 /* SilentHelpTests */,
-				094615F81F8466B0002B0208 /* SilentHelpUITests */,
+				094615D81F8466B0002B0208 /* LocationReminder */,
+				094615ED1F8466B0002B0208 /* LocationReminderTests */,
+				094615F81F8466B0002B0208 /* LocationReminderUITests */,
 				094615D71F8466B0002B0208 /* Products */,
 				86626EE45DD041BF63AD704E /* Pods */,
 				FBE704B984EBE15C8D1AB4E3 /* Frameworks */,
@@ -109,14 +112,14 @@
 		094615D71F8466B0002B0208 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				094615D61F8466B0002B0208 /* SilentHelp.app */,
-				094615EA1F8466B0002B0208 /* SilentHelpTests.xctest */,
-				094615F51F8466B0002B0208 /* SilentHelpUITests.xctest */,
+				094615D61F8466B0002B0208 /* LocationReminder.app */,
+				094615EA1F8466B0002B0208 /* LocationReminderTests.xctest */,
+				094615F51F8466B0002B0208 /* LocationReminderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		094615D81F8466B0002B0208 /* SilentHelp */ = {
+		094615D81F8466B0002B0208 /* LocationReminder */ = {
 			isa = PBXGroup;
 			children = (
 				094615D91F8466B0002B0208 /* AppDelegate.swift */,
@@ -132,25 +135,25 @@
 				09AAAF4A1F8A75BA004B05C8 /* AddViewController.swift */,
 				096A87E01F8AAF80009BE7BF /* SearchCell.swift */,
 			);
-			path = SilentHelp;
+			path = LocationReminder;
 			sourceTree = "<group>";
 		};
-		094615ED1F8466B0002B0208 /* SilentHelpTests */ = {
+		094615ED1F8466B0002B0208 /* LocationReminderTests */ = {
 			isa = PBXGroup;
 			children = (
 				094615EE1F8466B0002B0208 /* SilentHelpTests.swift */,
 				094615F01F8466B0002B0208 /* Info.plist */,
 			);
-			path = SilentHelpTests;
+			path = LocationReminderTests;
 			sourceTree = "<group>";
 		};
-		094615F81F8466B0002B0208 /* SilentHelpUITests */ = {
+		094615F81F8466B0002B0208 /* LocationReminderUITests */ = {
 			isa = PBXGroup;
 			children = (
 				094615F91F8466B0002B0208 /* SilentHelpUITests.swift */,
 				094615FB1F8466B0002B0208 /* Info.plist */,
 			);
-			path = SilentHelpUITests;
+			path = LocationReminderUITests;
 			sourceTree = "<group>";
 		};
 		86626EE45DD041BF63AD704E /* Pods */ = {
@@ -158,6 +161,8 @@
 			children = (
 				B0D9EB05A852DD7B0C2F84E0 /* Pods-SilentHelp.debug.xcconfig */,
 				18BEFEDA8CC900E868AD1ACB /* Pods-SilentHelp.release.xcconfig */,
+				3F40B2F7BD2116DDBB160F19 /* Pods-LocationReminder.debug.xcconfig */,
+				3DF42837FFC7633AA5D13888 /* Pods-LocationReminder.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			children = (
 				09B5035A1F899B2A003FA2B9 /* CoreLocation.framework */,
 				C0446C73EB09D6C67B15A11A /* libPods-SilentHelp.a */,
+				6BA0DC2C721733DD38378902 /* libPods-LocationReminder.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		094615D51F8466B0002B0208 /* SilentHelp */ = {
+		094615D51F8466B0002B0208 /* LocationReminder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 094615FE1F8466B0002B0208 /* Build configuration list for PBXNativeTarget "SilentHelp" */;
+			buildConfigurationList = 094615FE1F8466B0002B0208 /* Build configuration list for PBXNativeTarget "LocationReminder" */;
 			buildPhases = (
 				D60D5891E8A61AAFF5C1B435 /* [CP] Check Pods Manifest.lock */,
 				094615D21F8466B0002B0208 /* Sources */,
@@ -189,14 +195,14 @@
 			);
 			dependencies = (
 			);
-			name = SilentHelp;
+			name = LocationReminder;
 			productName = SilentHelp;
-			productReference = 094615D61F8466B0002B0208 /* SilentHelp.app */;
+			productReference = 094615D61F8466B0002B0208 /* LocationReminder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		094615E91F8466B0002B0208 /* SilentHelpTests */ = {
+		094615E91F8466B0002B0208 /* LocationReminderTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 094616011F8466B0002B0208 /* Build configuration list for PBXNativeTarget "SilentHelpTests" */;
+			buildConfigurationList = 094616011F8466B0002B0208 /* Build configuration list for PBXNativeTarget "LocationReminderTests" */;
 			buildPhases = (
 				094615E61F8466B0002B0208 /* Sources */,
 				094615E71F8466B0002B0208 /* Frameworks */,
@@ -207,14 +213,14 @@
 			dependencies = (
 				094615EC1F8466B0002B0208 /* PBXTargetDependency */,
 			);
-			name = SilentHelpTests;
+			name = LocationReminderTests;
 			productName = SilentHelpTests;
-			productReference = 094615EA1F8466B0002B0208 /* SilentHelpTests.xctest */;
+			productReference = 094615EA1F8466B0002B0208 /* LocationReminderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		094615F41F8466B0002B0208 /* SilentHelpUITests */ = {
+		094615F41F8466B0002B0208 /* LocationReminderUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 094616041F8466B0002B0208 /* Build configuration list for PBXNativeTarget "SilentHelpUITests" */;
+			buildConfigurationList = 094616041F8466B0002B0208 /* Build configuration list for PBXNativeTarget "LocationReminderUITests" */;
 			buildPhases = (
 				094615F11F8466B0002B0208 /* Sources */,
 				094615F21F8466B0002B0208 /* Frameworks */,
@@ -225,9 +231,9 @@
 			dependencies = (
 				094615F71F8466B0002B0208 /* PBXTargetDependency */,
 			);
-			name = SilentHelpUITests;
+			name = LocationReminderUITests;
 			productName = SilentHelpUITests;
-			productReference = 094615F51F8466B0002B0208 /* SilentHelpUITests.xctest */;
+			productReference = 094615F51F8466B0002B0208 /* LocationReminderUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -256,7 +262,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 094615D11F8466B0002B0208 /* Build configuration list for PBXProject "SilentHelp" */;
+			buildConfigurationList = 094615D11F8466B0002B0208 /* Build configuration list for PBXProject "LocationReminder" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -269,9 +275,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				094615D51F8466B0002B0208 /* SilentHelp */,
-				094615E91F8466B0002B0208 /* SilentHelpTests */,
-				094615F41F8466B0002B0208 /* SilentHelpUITests */,
+				094615D51F8466B0002B0208 /* LocationReminder */,
+				094615E91F8466B0002B0208 /* LocationReminderTests */,
+				094615F41F8466B0002B0208 /* LocationReminderUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -315,7 +321,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SilentHelp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LocationReminder-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -328,7 +334,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-LocationReminder/Pods-LocationReminder-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
@@ -339,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocationReminder/Pods-LocationReminder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F9994AB737E86C40FE30AD01 /* [CP] Embed Pods Frameworks */ = {
@@ -354,7 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SilentHelp/Pods-SilentHelp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocationReminder/Pods-LocationReminder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -396,12 +402,12 @@
 /* Begin PBXTargetDependency section */
 		094615EC1F8466B0002B0208 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 094615D51F8466B0002B0208 /* SilentHelp */;
+			target = 094615D51F8466B0002B0208 /* LocationReminder */;
 			targetProxy = 094615EB1F8466B0002B0208 /* PBXContainerItemProxy */;
 		};
 		094615F71F8466B0002B0208 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 094615D51F8466B0002B0208 /* SilentHelp */;
+			target = 094615D51F8466B0002B0208 /* LocationReminder */;
 			targetProxy = 094615F61F8466B0002B0208 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -535,15 +541,15 @@
 		};
 		094615FF1F8466B0002B0208 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0D9EB05A852DD7B0C2F84E0 /* Pods-SilentHelp.debug.xcconfig */;
+			baseConfigurationReference = 3F40B2F7BD2116DDBB160F19 /* Pods-LocationReminder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3LWPTJLC7P;
-				INFOPLIST_FILE = SilentHelp/Info.plist;
+				INFOPLIST_FILE = LocationReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.SilentHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = test.LocationReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -553,15 +559,15 @@
 		};
 		094616001F8466B0002B0208 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18BEFEDA8CC900E868AD1ACB /* Pods-SilentHelp.release.xcconfig */;
+			baseConfigurationReference = 3DF42837FFC7633AA5D13888 /* Pods-LocationReminder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3LWPTJLC7P;
-				INFOPLIST_FILE = SilentHelp/Info.plist;
+				INFOPLIST_FILE = LocationReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.SilentHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = test.LocationReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -581,7 +587,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SilentHelp.app/SilentHelp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocationReminder.app/LocationReminder";
 			};
 			name = Debug;
 		};
@@ -597,7 +603,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SilentHelp.app/SilentHelp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocationReminder.app/LocationReminder";
 			};
 			name = Release;
 		};
@@ -634,7 +640,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		094615D11F8466B0002B0208 /* Build configuration list for PBXProject "SilentHelp" */ = {
+		094615D11F8466B0002B0208 /* Build configuration list for PBXProject "LocationReminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				094615FC1F8466B0002B0208 /* Debug */,
@@ -643,7 +649,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		094615FE1F8466B0002B0208 /* Build configuration list for PBXNativeTarget "SilentHelp" */ = {
+		094615FE1F8466B0002B0208 /* Build configuration list for PBXNativeTarget "LocationReminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				094615FF1F8466B0002B0208 /* Debug */,
@@ -652,7 +658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		094616011F8466B0002B0208 /* Build configuration list for PBXNativeTarget "SilentHelpTests" */ = {
+		094616011F8466B0002B0208 /* Build configuration list for PBXNativeTarget "LocationReminderTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				094616021F8466B0002B0208 /* Debug */,
@@ -661,7 +667,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		094616041F8466B0002B0208 /* Build configuration list for PBXNativeTarget "SilentHelpUITests" */ = {
+		094616041F8466B0002B0208 /* Build configuration list for PBXNativeTarget "LocationReminderUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				094616051F8466B0002B0208 /* Debug */,
