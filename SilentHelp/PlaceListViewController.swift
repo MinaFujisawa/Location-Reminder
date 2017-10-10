@@ -64,15 +64,36 @@ class PlaceListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        placeList!.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
-
-        let defaults = UserDefaults.standard
-        if let list = placeList {
-            defaults.set(NSKeyedArchiver.archivedData(withRootObject: list), forKey: placeListKey)
-        }
-
-        setNotification(placeList: placeList)
+        
+        // MARK: Actionsheet
+        let placeName = placeList?[indexPath.row].placeName
+        let alert: UIAlertController = UIAlertController(title: placeName! + "will be deleted", message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
+        
+        // Delete action
+        let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("Delete!")
+            self.placeList!.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let defaults = UserDefaults.standard
+            if let list = self.placeList {
+                defaults.set(NSKeyedArchiver.archivedData(withRootObject: list), forKey: self.placeListKey)
+            }
+            
+            self.setNotification(placeList: self.placeList)
+        })
+        
+        // Cancel action
+        let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertActionStyle.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("cancelAction")
+        })
+        
+        // Show
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        present(alert, animated: true, completion: nil)
     }
 
     //MARK:segue
@@ -84,7 +105,7 @@ class PlaceListViewController: UITableViewController {
                     let editViewController = segue.destination as! EditViewController
                     editViewController.place = place
                     editViewController.list = placeList
-                    editViewController.test = indexPath.row
+                    editViewController.rowIndex = indexPath.row
                 }
             }
         }
