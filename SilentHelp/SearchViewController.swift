@@ -162,7 +162,7 @@ extension SearchViewController: CLLocationManagerDelegate {
 
         // Set up the autocomplete filter
         let filter = GMSAutocompleteFilter()
-        filter.type = .establishment
+        filter.type = .noFilter
 
         // Create the fetcher
         fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)

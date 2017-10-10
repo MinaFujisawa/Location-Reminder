@@ -25,7 +25,7 @@ class EditViewController: UIViewController {
     @IBAction func removeButton(_ sender: Any) {
         let listVC = PlaceListViewController()
         // MARK: Actionsheet
-        let alert: UIAlertController = UIAlertController(title: place!.placeName + "will be deleted", message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
+        let alert: UIAlertController = UIAlertController(title: place!.placeName + " will be deleted", message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
         
         // Delete action
         let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive, handler:{

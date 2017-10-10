@@ -8,7 +8,7 @@
 
 import UIKit
 
-class placeCell: UITableViewCell {
+class PlaceCell: UITableViewCell {
     
     //TASK : Add outlet
  

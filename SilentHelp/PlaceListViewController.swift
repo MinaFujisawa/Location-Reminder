@@ -49,7 +49,7 @@ class PlaceListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! placeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PlaceCell
 
         if let list = placeList {
             cell.whereLabel?.text = list[indexPath.row].placeName
@@ -67,7 +67,7 @@ class PlaceListViewController: UITableViewController {
         
         // MARK: Actionsheet
         let placeName = placeList?[indexPath.row].placeName
-        let alert: UIAlertController = UIAlertController(title: placeName! + "will be deleted", message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
+        let alert: UIAlertController = UIAlertController(title: placeName! + " will be deleted", message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
         
         // Delete action
         let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive, handler:{

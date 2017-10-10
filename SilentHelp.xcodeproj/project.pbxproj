@@ -15,7 +15,7 @@
 		094615FA1F8466B0002B0208 /* SilentHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094615F91F8466B0002B0208 /* SilentHelpUITests.swift */; };
 		094616081F855571002B0208 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616071F855571002B0208 /* Place.swift */; };
 		0946160A1F855653002B0208 /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094616091F855653002B0208 /* PlaceListViewController.swift */; };
-		0946160C1F8556AC002B0208 /* placeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160B1F8556AC002B0208 /* placeCell.swift */; };
+		0946160C1F8556AC002B0208 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160B1F8556AC002B0208 /* PlaceCell.swift */; };
 		0946160E1F855F0D002B0208 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946160D1F855F0D002B0208 /* EditViewController.swift */; };
 		096A87E11F8AAF80009BE7BF /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A87E01F8AAF80009BE7BF /* SearchCell.swift */; };
 		09AAAF4B1F8A75BA004B05C8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AAAF4A1F8A75BA004B05C8 /* AddViewController.swift */; };
@@ -56,7 +56,7 @@
 		094615FB1F8466B0002B0208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		094616071F855571002B0208 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		094616091F855653002B0208 /* PlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewController.swift; sourceTree = "<group>"; };
-		0946160B1F8556AC002B0208 /* placeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeCell.swift; sourceTree = "<group>"; };
+		0946160B1F8556AC002B0208 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		0946160D1F855F0D002B0208 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		096A87E01F8AAF80009BE7BF /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		09AAAF4A1F8A75BA004B05C8 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				094615E21F8466B0002B0208 /* LaunchScreen.storyboard */,
 				094615E51F8466B0002B0208 /* Info.plist */,
 				094616071F855571002B0208 /* Place.swift */,
-				0946160B1F8556AC002B0208 /* placeCell.swift */,
+				0946160B1F8556AC002B0208 /* PlaceCell.swift */,
 				094616091F855653002B0208 /* PlaceListViewController.swift */,
 				0946160D1F855F0D002B0208 /* EditViewController.swift */,
 				09D9CAE81F86A9C6006FED45 /* SearchViewController.swift */,
@@ -367,7 +367,7 @@
 				09D9CAE91F86A9C6006FED45 /* SearchViewController.swift in Sources */,
 				0946160E1F855F0D002B0208 /* EditViewController.swift in Sources */,
 				09AAAF4B1F8A75BA004B05C8 /* AddViewController.swift in Sources */,
-				0946160C1F8556AC002B0208 /* placeCell.swift in Sources */,
+				0946160C1F8556AC002B0208 /* PlaceCell.swift in Sources */,
 				094616081F855571002B0208 /* Place.swift in Sources */,
 				096A87E11F8AAF80009BE7BF /* SearchCell.swift in Sources */,
 				094615DA1F8466B0002B0208 /* AppDelegate.swift in Sources */,
