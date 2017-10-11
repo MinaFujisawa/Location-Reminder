@@ -1,6 +1,5 @@
 //
-//  SearchTableViewCell.swift
-//  SilentHelp
+//  SearchCell.swift
 //
 //  Created by MINA FUJISAWA on 2017/10/08.
 //  Copyright © 2017 MINA FUJISAWA. All rights reserved.

@@ -1,6 +1,5 @@
 //
 //  placeListViewController.swift
-//  SilentHelp
 //
 //  Created by MINA FUJISAWA on 2017/10/04.
 //  Copyright © 2017 MINA FUJISAWA. All rights reserved.

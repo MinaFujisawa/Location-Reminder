@@ -1,6 +1,5 @@
 //
-//  SilentZone.swift
-//  SilentHelp
+//  Place.swift
 //
 //  Created by MINA FUJISAWA on 2017/10/04.
 //  Copyright © 2017 MINA FUJISAWA. All rights reserved.
@@ -28,11 +27,11 @@ class Place :NSObject, NSCoding {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.message = aDecoder.decodeObject(forKey: "message") as! String;
-        self.placeName = aDecoder.decodeObject(forKey: "placeName") as! String;
-        self.fullAddress = aDecoder.decodeObject(forKey: "fullAddress") as! String;
-        self.lat = aDecoder.decodeDouble(forKey: "lat") as! CLLocationDegrees;
-        self.lon = aDecoder.decodeDouble(forKey: "lon") as! CLLocationDegrees;
+        self.message = aDecoder.decodeObject(forKey: "message") as! String
+        self.placeName = aDecoder.decodeObject(forKey: "placeName") as! String
+        self.fullAddress = aDecoder.decodeObject(forKey: "fullAddress") as? String
+        self.lat = aDecoder.decodeDouble(forKey: "lat")
+        self.lon = aDecoder.decodeDouble(forKey: "lon")
     }
 
     func encode(with aCoder: NSCoder) {

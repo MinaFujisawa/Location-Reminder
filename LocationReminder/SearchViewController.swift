@@ -1,6 +1,5 @@
 //
 //  SearchViewController.swift
-//  SilentHelp
 //
 //  Created by MINA FUJISAWA on 2017/10/05.
 //  Copyright © 2017 MINA FUJISAWA. All rights reserved.
@@ -93,6 +92,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
+            print("resultList.count \(resultList.count)")
             return resultList.count
         }
         return 0
